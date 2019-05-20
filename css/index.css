@@ -193,14 +193,13 @@ p {
 .header .sign-in-button {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   align-items: center;
 }
 .header .bar1,
 .header .bar2,
 .header .bar3 {
   width: 20px;
-  height: 4px;
+  height: 5px;
   background-color: white;
   margin: 2px 0;
 }
@@ -211,11 +210,13 @@ p {
   position: absolute;
   left: 40px;
   cursor: pointer;
+  margin-top: 2.5%;
 }
 .sign-in-button {
   position: absolute;
   right: 40px;
   cursor: pointer;
+  margin-top: 2.5%;
 }
 .menu {
   display: none;

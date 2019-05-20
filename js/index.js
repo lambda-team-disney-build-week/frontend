@@ -9,3 +9,5 @@ const toggleMenu = () => {
   menuButton.addEventListener('click', e => {
     toggleMenu() 
   })
+
+  //text size for button

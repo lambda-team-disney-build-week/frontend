@@ -147,11 +147,11 @@ h1 {
   font-size: 4rem;
 }
 h2 {
-  font-size: 3.2rem;
+  font-size: 2.6rem;
   padding-bottom: 10px;
 }
 h4 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   padding-bottom: 10px;
 }
 h5 {
@@ -176,7 +176,7 @@ p {
 .header {
   width: 100%;
   height: 75px;
-  background-color: #C3CDE6;
+  background-color: #7292B8;
   color: white;
   display: flex;
   justify-content: center;
@@ -195,6 +195,17 @@ p {
   flex-direction: column;
   border: 1px solid black;
   align-items: center;
+}
+.header .bar1,
+.header .bar2,
+.header .bar3 {
+  width: 20px;
+  height: 4px;
+  background-color: white;
+  margin: 2px 0;
+}
+.header p {
+  margin-top: 5px;
 }
 .menu-button {
   position: absolute;
@@ -215,7 +226,7 @@ p {
   width: auto;
   height: auto;
   /* This give the height 100% of the screen or, '100% of View Height' */
-  background-color: #C3CDE6;
+  background-color: #7292B8;
   border: 1px solid #004D40;
   border-left: none;
   z-index: 2;
@@ -224,8 +235,9 @@ p {
 .menu a {
   list-style-type: none;
   float: none;
-  color: black;
+  color: white;
   padding: 10px;
+  text-decoration: none;
   display: block;
   text-align: left;
 }
@@ -233,34 +245,40 @@ p {
   display: block;
   text-decoration: none;
 }
-.main-image {
-  width: 100%;
-  height: auto;
-}
 .container {
   background-color: blanchedalmond;
 }
-h2 {
-  font-size: 1.5rem;
+.main-image {
+  padding-top: 75px;
+  width: 100%;
+  margin: auto;
+}
+.main-content {
+  width: 95%;
+  margin: auto;
 }
 p {
   margin: 20px 0;
   line-height: 1.25;
 }
+.park-assistance {
+  font-weight: bold;
+  text-align: right;
+}
 button {
   display: block;
-  background-color: #C3CDE6;
+  background-color: #7292B8;
   color: white;
   margin: auto;
   cursor: pointer;
-  width: 90%;
-  height: 45px;
-  font-size: 1.2rem;
+  height: 60px;
+  width: 100%;
+  text-justify: inter-word;
+  font-size: 2.8rem;
   border-radius: 50px;
 }
 @media (max-width: 500px) {
   button .button {
-    width: 90%;
     height: 50px;
     font-size: 2.5rem;
   }

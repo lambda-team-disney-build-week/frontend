@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import LoginForm from '../components/LoginForm'
 import Jumbo from '../components/Jumbo'
-import Signup from './Signup'
+import Signup from '../pages/Signup'
 
 
   class Login extends Component {

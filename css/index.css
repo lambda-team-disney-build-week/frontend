@@ -289,29 +289,54 @@ p {
 .mc-section-4 h2 {
   text-align: right;
 }
-.mc-section-5 {
-  color: #306D96;
-}
 .mc-section-5 h2 {
   text-align: right;
 }
-.mc-section-5 table,
-.mc-section-5 .td,
-.mc-section-5 .tr {
-  text-align: center;
-}
-.mc-section-5 p {
+.mc-section-5 .box {
+  background-color: #F6D7B3;
+  border-radius: 50px;
+  padding: 20px;
   color: #306D96;
+}
+.mc-section-5 .box table,
+.mc-section-5 .box .td,
+.mc-section-5 .box .tr {
+  text-align: center;
+  border-spacing: 0 15px;
+  font-size: 2.2rem;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.mc-section-5 .box .td {
+  padding: 15px;
+}
+.mc-section-5 .box p {
+  color: #306D96;
+  padding: 10px;
+  width: 85%;
+  margin: auto;
 }
 .mc-section-6 h2 {
   text-align: right;
 }
 .bottom-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   text-align: left;
+  align-content: flex-start;
   color: #306D96;
   margin-bottom: 40px;
+}
+.bottom-section .bottom-section-1,
+.bottom-section .bottom-section-2 {
+  width: 50%;
+  padding-left: 50px;
+}
+.bottom-section ul {
+  font-size: 1.5rem;
+}
+.bottom-section ul li {
+  padding: 5px 0;
 }
 .bottom-section h5 {
   font-weight: bold;

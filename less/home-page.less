@@ -1,5 +1,5 @@
 .container {
-    background-color: blanchedalmond;
+    background-color: #f4ede5;
   }
 
   .main-image {
@@ -111,12 +111,77 @@
       text-align: right;
     }
     .talk-bubble-1 {
+      display: flex;
       position: relative;
       background: #DADDE1;
       border-radius: 50px 50px 50px 0;
       height: 250px;
+      width: 90%;
+      // border: 1px solid red;
+      justify-items: flex-end;
+      align-items: flex-start;
+      margin-left: 10%;
+      margin-bottom: 20px;
     }
     .talk-bubble-1:after {
+      content: '';
+	    position: absolute;
+      left: 0;
+      bottom: 50%;
+      width: 0;
+      height: 0;
+      border: 35px solid transparent;
+      border-right-color: #DADDE1;
+      border-left: 0;
+      border-bottom: 0;
+      margin-bottom: -125px;
+      margin-left: -24px;
+    }
+
+    .talk-bubble-2 {
+      p {
+        color: @Diswhite;
+      }
+      display: flex;
+      position: relative;
+      background: #7292B8;
+      border-radius: 50px 50px 0 50px;
+      height: 250px;
+      width: 90%;
+      // border: 1px solid red;
+      justify-items: flex-end;
+      align-items: flex-start;
+      margin-right: 10%;
+      margin-bottom: 20px;
+    }
+    .talk-bubble-2:after {
+      content: '';
+	    position: absolute;
+      right: 0;
+      bottom: 50%;
+      width: 0;
+      height: 0;
+      border: 35px solid transparent;
+      border-left-color: #7292B8;
+      border-right: 0;
+      border-bottom: 0;
+      margin-bottom: -125px;
+      margin-right: -24px;
+    }
+
+    .talk-bubble-3 {
+      display: flex;
+      position: relative;
+      background: #DADDE1;
+      border-radius: 50px 50px 50px 0;
+      height: 250px;
+      width: 90%;
+      // border: 1px solid red;
+      justify-items: flex-end;
+      align-items: flex-start;
+      margin-left: 10%;
+    }
+    .talk-bubble-3:after {
       content: '';
 	    position: absolute;
       left: 0;
@@ -139,6 +204,7 @@
     align-content: flex-start;
     color: @h2blue;
     margin-bottom: 40px;
+    padding-top: 50px;
     // border: 1px solid black;
 
     .bottom-section-1, .bottom-section-2 {
@@ -182,4 +248,5 @@
   footer {
     text-align: center;
     color: @h2blue;
+    padding-bottom: 10px;
   }

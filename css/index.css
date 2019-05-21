@@ -147,21 +147,23 @@ h1 {
   font-size: 4rem;
 }
 h2 {
-  font-size: 2.6rem;
+  font-size: 3.3rem;
   padding-bottom: 10px;
+  color: #306D96;
 }
 h4 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   padding-bottom: 10px;
 }
 h5 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   padding-bottom: 10px;
 }
 p {
   line-height: 1.25;
-  font-size: 1.6rem;
+  font-size: 2rem;
   padding-bottom: 10px;
+  color: #2D3239;
 }
 .container {
   width: 100%;
@@ -194,6 +196,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #F9FAFA;
 }
 .header .bar1,
 .header .bar2,
@@ -205,6 +208,7 @@ p {
 }
 .header p {
   margin-top: 5px;
+  color: #F9FAFA;
 }
 .menu-button {
   position: absolute;
@@ -266,6 +270,52 @@ p {
   font-weight: bold;
   text-align: right;
 }
+.park-assistance img {
+  width: 85%;
+}
+.mc-section-3 img {
+  width: 85%;
+}
+.mc-section-3 p {
+  text-align: right;
+}
+.caregiver-image {
+  width: 100%;
+  height: auto;
+}
+.checkmarks {
+  list-style-type: disc;
+}
+.mc-section-4 h2 {
+  text-align: right;
+}
+.mc-section-5 {
+  color: #306D96;
+}
+.mc-section-5 h2 {
+  text-align: right;
+}
+.mc-section-5 table,
+.mc-section-5 .td,
+.mc-section-5 .tr {
+  text-align: center;
+}
+.mc-section-5 p {
+  color: #306D96;
+}
+.mc-section-6 h2 {
+  text-align: right;
+}
+.bottom-section {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  color: #306D96;
+  margin-bottom: 40px;
+}
+.bottom-section h5 {
+  font-weight: bold;
+}
 button {
   display: block;
   background-color: #7292B8;
@@ -286,4 +336,5 @@ button {
 }
 footer {
   text-align: center;
+  color: #306D96;
 }

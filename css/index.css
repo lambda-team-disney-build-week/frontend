@@ -279,15 +279,36 @@ p {
 .mc-section-3 p {
   text-align: right;
 }
-.caregiver-image {
+.mc-section-4 h2 {
+  text-align: right;
+}
+.mc-section-4 .poppins {
+  text-align: center;
+  color: #306D96;
+}
+.mc-section-4 .poppins-1 {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #306D96;
+}
+.mc-section-4 .poppins-2 {
+  padding-top: 0px;
+  margin-top: 0px;
+  text-align: center;
+  color: #306D96;
+}
+.mc-section-4 .caregiver-image {
   width: 100%;
   height: auto;
 }
-.checkmarks {
-  list-style-type: disc;
-}
-.mc-section-4 h2 {
-  text-align: right;
+.mc-section-4 .custom-list li {
+  list-style: inside circle;
+  align-content: center;
+  color: #7292B8;
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 5px 0 5px 18%;
 }
 .mc-section-5 h2 {
   text-align: right;
@@ -318,6 +339,26 @@ p {
 }
 .mc-section-6 h2 {
   text-align: right;
+}
+.mc-section-6 .talk-bubble-1 {
+  position: relative;
+  background: #DADDE1;
+  border-radius: 50px 50px 50px 0;
+  height: 250px;
+}
+.mc-section-6 .talk-bubble-1:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  width: 0;
+  height: 0;
+  border: 35px solid transparent;
+  border-right-color: #DADDE1;
+  border-left: 0;
+  border-bottom: 0;
+  margin-bottom: -125px;
+  margin-left: -24px;
 }
 .bottom-section {
   display: flex;

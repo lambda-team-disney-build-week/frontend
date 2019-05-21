@@ -35,19 +35,46 @@
     }
   }
 
-  .caregiver-image {
-    width: 100%;
-    height: auto;
-  }
-
-  .checkmarks{
-    list-style-type: disc;
-  }
-
+  
   .mc-section-4 {
     h2 {
       text-align: right;
     }
+    .poppins {
+      text-align: center;
+      color: @h2blue;
+      // margin: 0;
+    }
+    .poppins-1 {
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+      text-align: center;
+      color: @h2blue;
+    }
+    .poppins-2 {
+      padding-top: 0px;
+      margin-top: 0px;
+      text-align: center;
+      color: @h2blue;
+    }
+    .caregiver-image {
+    width: 100%;
+    height: auto;
+    }
+
+    .custom-list{
+      // list-style: square inside;
+      // border: 1px solid red;
+      li {
+        list-style: inside circle;
+        align-content: center;
+        // border: 1px solid red;
+        color: @periwinkle;
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 5px 0 5px 18%;
+        }
+      }
   }
   
   .mc-section-5 {
@@ -82,6 +109,26 @@
   .mc-section-6 {
     h2 {
       text-align: right;
+    }
+    .talk-bubble-1 {
+      position: relative;
+      background: #DADDE1;
+      border-radius: 50px 50px 50px 0;
+      height: 250px;
+    }
+    .talk-bubble-1:after {
+      content: '';
+	    position: absolute;
+      left: 0;
+      bottom: 50%;
+      width: 0;
+      height: 0;
+      border: 35px solid transparent;
+      border-right-color: #DADDE1;
+      border-left: 0;
+      border-bottom: 0;
+      margin-bottom: -125px;
+      margin-left: -24px;
     }
   }
 

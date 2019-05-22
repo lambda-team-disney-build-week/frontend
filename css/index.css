@@ -352,6 +352,8 @@ p {
   flex-direction: column;
   width: 40%;
   border: 1px solid red;
+  text-align: right;
+  padding-top: 70px;
 }
 @media (max-width: 550px) {
   .top-section .mc-section-1 {
@@ -415,9 +417,6 @@ p {
   width: 85%;
   margin-bottom: 20px;
 }
-.mc-section-4 {
-  margin-bottom: 70px;
-}
 .mc-section-4 h2 {
   text-align: right;
 }
@@ -437,13 +436,45 @@ p {
   text-align: center;
   color: #306D96;
 }
-.mc-section-4 .caregiver-image {
-  width: 100%;
-  height: auto;
+.mc-section-4 .flex-for-4 {
+  display: flex;
+  flex-direction: row-reverse;
+  border: 1px solid red;
+  margin-bottom: 70px;
 }
-.mc-section-4 .custom-list li {
+@media (max-width: 550px) {
+  .mc-section-4 .flex-for-4 {
+    display: block;
+  }
+}
+.mc-section-4 .flex-for-4 .image-div {
+  display: flex;
+  width: 50%;
+  height: auto;
+  border: 1px solid red;
+}
+@media (max-width: 550px) {
+  .mc-section-4 .flex-for-4 .image-div {
+    width: 100%;
+  }
+}
+.mc-section-4 .flex-for-4 .image-div img {
+  width: 100%;
+}
+.mc-section-4 .flex-for-4 .flexed-content-4 {
+  width: 50%;
+  border: 1px solid red;
+}
+@media (max-width: 550px) {
+  .mc-section-4 .flex-for-4 .flexed-content-4 {
+    width: 95%;
+    margin: auto;
+  }
+}
+.mc-section-4 .flex-for-4 .flexed-content-4 .custom-list li {
   list-style: inside circle;
   align-content: center;
+  border: 1px solid red;
   color: #7292B8;
   font-size: 1.8rem;
   font-weight: bold;

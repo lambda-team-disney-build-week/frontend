@@ -3,57 +3,106 @@
     width: 100%;
     margin: auto;
   }
-
-  .main-image {
+  .main-content{
       padding-top: 75px;
       width: 100%;
       margin: auto;
-      margin-bottom: 40px;
   }
-
-  .main-content{
-      width: 95%;
-      margin: auto;
-  }
-
   p {
     margin: 20px 0;
     line-height: 1.25;
   }
 
-  .mc-section-1 {
-    p {
-      font-size: 2.4rem;
-      width: 80%;
+  .top-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 70px;
+      border: 1px solid red;
+      @media @mobile {
+        display: block
+      }
+  
+    .main-image {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid red;
+        width: 55%;
+
+      @media @mobile {
+      width: 100%;
+      margin: auto;
       margin-bottom: 40px;
+      }
+    }
+
+    .mc-section-1 {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      border: 1px solid red;
+
+      @media @mobile {
+        width: 95%;
+        margin-left: 1.5rem;
+      p {
+        font-size: 2.4rem;
+        width: 80%;
+        margin-bottom: 40px;
+      }
     }
   }
+}
   
-  .mc-section-2 {
-    h2 {
-      margin-bottom: 20px;
-    }
-    
-    .park-assistance {
-      img{
-        width: 85%;
-        margin-bottom: 10px;
-      }
-      font-weight: bold;
+  .middle-section {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 70px;
+      border: 1px solid red;
+      @media @mobile {
+        display: block
+        }
+    .mc-section-2 {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid red;
+      width: 50%;
+      align-items: flex-end;
       text-align: right;
-    }
+      @media @mobile {
+        width: 95%;
+        }
+      h2 {
+        margin-bottom: 20px;
+        }       
+      img{
+          width: 75%;
+          margin-bottom: 20px;
+        }
+      }
+    .mc-section-3 {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid red;
+      width: 50%;
+      align-items: flex-start;
+      text-align: left;
+      @media @mobile {
+        width: 95%;
+        margin-bottom: 70px;
+        }
+      img {
+        width: 85%;
+        margin-bottom: 20px;
+        }
+      }
   }
 
-  .mc-section-3 {
-    img{
-      width: 85%;
-      margin-bottom: 20px;
-    }
-    p {
-      text-align: right;
-    }
-    margin-bottom: 70px;
-  }
+
 
   .mc-section-4 {
     h2 {
@@ -95,6 +144,7 @@
       }
       margin-bottom: 70px;
   }
+
   
   .mc-section-5 {
     h2 {

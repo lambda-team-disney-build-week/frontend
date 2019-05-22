@@ -14,10 +14,7 @@ class Jumbo extends Component {
                             :
                         <Button onClick={this.props.toggle} className="btn btn-lg btn-blue">Sign In</Button>}
                 </Jumbotron>
-            </ div>
-            
-        
-            
+            </ div>            
         )
     }
 }

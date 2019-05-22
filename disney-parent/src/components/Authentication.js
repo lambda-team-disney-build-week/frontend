@@ -3,6 +3,7 @@ import {getToken} from '../helpers/getToken'
 import axios from 'axios';
 import {withRouter} from 'react-router-dom'
 import Login from '../pages/Login';
+import Signup from '../pages/Signup';
 
 class Auth extends Component {
     constructor(props){
@@ -17,17 +18,17 @@ class Auth extends Component {
         const token = getToken();
         console.log(token)
         if(!token){
-            this.props.history.push('/Login')
+            this.props.history.push(`/parents/${userInfo.id}`)
         }
         axios
-        .get('https://disneyparent-backend.herokuapp.com/auth/parents/login', { headers: { Authorization: token}})
+        .post('https://disneyparent-backend.herokuapp.com/auth/parents/login', { headers: { Authorization: token}})
         .then(res=> 
           this.setState({      
               user: res.data
           }))
           .catch(err=> {
               localStorage.removeItem('token');
-              this.props.history.push('/Login')
+              this.props.history.push('/Signup')
           })
     }
     render(){

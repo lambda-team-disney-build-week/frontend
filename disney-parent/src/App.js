@@ -29,10 +29,6 @@ class App extends Component {
       <BrowserRouter >
         <Route path ='/' exact component={Home}></Route>
         <Route path ='/login' component ={Login}></Route>
-        {/* <Auth>
-        <Route path ='/Parent' component ={Posts}></Route>
-        <Route path ='/request' component={RequestForm}></Route>
-        </Auth> */}
       </BrowserRouter >
     );
   }

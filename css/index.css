@@ -179,7 +179,7 @@ p {
   width: 100%;
   height: 75px;
   background-color: #7292B8;
-  color: white;
+  color: #F9FAFA;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,9 +187,8 @@ p {
   top: 0;
   z-index: 2;
 }
-.header h1 {
-  margin: 0;
-  font-size: 28px;
+.header .logo {
+  height: 90%;
 }
 .header .menu-button,
 .header .sign-in-button {
@@ -203,7 +202,7 @@ p {
 .header .bar3 {
   width: 20px;
   height: 5px;
-  background-color: white;
+  background-color: #F9FAFA;
   margin: 2px 0;
 }
 .header p {
@@ -232,15 +231,14 @@ p {
   height: auto;
   /* This give the height 100% of the screen or, '100% of View Height' */
   background-color: #7292B8;
-  border: 1px solid #004D40;
-  border-left: none;
+  border: 1px solid #F9FAFA;
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
 }
 .menu a {
   list-style-type: none;
   float: none;
-  color: white;
+  color: #F9FAFA;
   padding: 10px;
   text-decoration: none;
   display: block;
@@ -347,11 +345,14 @@ p {
 .mc-section-5 .box td,
 .mc-section-5 .box tr {
   text-align: center;
-  border-spacing: 20px;
+  border-spacing: 15px;
   font-size: 2.2rem;
-  padding: 20px;
+  padding: 15px;
   margin: auto;
   margin-bottom: 10px;
+}
+.mc-section-5 .box th {
+  border-spacing: 15px 25px;
 }
 .mc-section-5 .box p {
   color: #306D96;

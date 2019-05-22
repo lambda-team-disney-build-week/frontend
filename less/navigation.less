@@ -2,7 +2,7 @@
     width: 100%;
     height: 75px;
     background-color: @periwinkle;
-    color: white;
+    color: @Diswhite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,9 +10,13 @@
     top: 0;
     z-index: 2;
   
-    h1 {
-      margin: 0;
-      font-size: 28px;
+    // h1 {
+    //   margin: 0;
+    //   font-size: 28px;
+    // }
+
+    .logo {
+      height: 90%;
     }
     .menu-button, .sign-in-button {
       display: flex;
@@ -24,7 +28,7 @@
     .bar1, .bar2, .bar3 {
         width: 20px;
         height: 5px;
-        background-color: white;
+        background-color: @Diswhite;
         margin: 2px 0;
     }
     p {
@@ -59,15 +63,14 @@
     width: auto;
     height: auto; /* This give the height 100% of the screen or, '100% of View Height' */
     background-color: @periwinkle;
-    border: 1px solid #004D40;
-    border-left: none;
+    border: 1px solid @Diswhite;
     z-index: 2; /* This set the layer level of the element, it has precendence over initial level of 1*/
   }
   
   .menu a {
     list-style-type: none;
     float: none;
-    color: white;
+    color: @Diswhite;
     padding: 10px;
     text-decoration: none;
     display: block;

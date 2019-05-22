@@ -4,11 +4,13 @@ import { Card,
          CardBody,
          CardTitle, 
          CardSubtitle, 
+         CardText,
          Button, 
          Container, 
          Input, 
          Form } from 'reactstrap';
-import './styles.scss';
+// import './styles.scss';
+import axios from 'axios';
 
 
 class Post extends React.Component {
@@ -42,9 +44,20 @@ class Post extends React.Component {
     getPost = (e, id) => {
       const token = localStorage.getItem('token')
         axios
-          .get(`https://disney-parent.herokuapp.com/api/posts/${id}`,  {headers: {Authorization: token}})
+          .get(`https://disney-parent.herokuapp.com/api/posts`,  {headers: {Authorization: token}})
           .then(res=> {
           console.log(res)
+          .then(res => {
+            this.setState({
+              title: res.data.title,
+              attraction: res.data.attraction,
+              children: res.data.children,
+              time: res.data.time,
+              parent_id: res.data.parent_id,
+              created_at: res.data.created_at,
+              updated_at: res.data.updated_at
+            })
+          })
           })
           .catch(err=> console.log(err));
     }
@@ -53,7 +66,7 @@ class Post extends React.Component {
       e.preventDefault();
       const token = localStorage.getItem('token')
         axios
-          .delete(`https://disneyparent-backend.herokuapp.com/posts/${id}`, {headers: { Authorization: token}})
+          .delete(`https://disneyparent-backend.herokuapp.com/posts${id}`, {headers: { Authorization: token}})
           .then(res => {
             window.location.reload()
             console.log(res,"res");
@@ -62,16 +75,17 @@ class Post extends React.Component {
     }
 
   render() {
+    console.log(this.props)
     return (
       <Container className="wrap">
         <div>
           <Card className="shadow border">
-            <CardTitle onClick={(e) => this.getPost(e, this.props.posts)} className="center">{this.props.posts.title}</CardTitle>
-            <CardSubtitle className="attraction"><strong>{this.props.attraction}</strong></CardSubtitle>
-            <CardText className="children">this.props.children</CardText>
-            <CardText className="time">{this.props.time}</CardText>
-            <CardText className="created">{this.props.created_at}</CardText>
-            <CardText className="updated_at">{this.props.updated_at}</CardText>
+            <CardTitle className="title"><h1><strong>{this.props.post.title}</strong></h1></CardTitle>
+            <CardSubtitle className="attraction"><strong>Location: {this.props.post.attraction}</strong></CardSubtitle>
+            <CardText className="children">Number of Children: {this.props.post.children}</CardText>
+            <CardText className="time">Time: {this.props.post.time}</CardText>
+            <CardText className="created">Requested at: {this.props.post.created_at}</CardText>
+            <CardText className="updated_at">Updated at: {this.props.post.updated_at}</CardText>
           </Card>
         </div>
       </Container>

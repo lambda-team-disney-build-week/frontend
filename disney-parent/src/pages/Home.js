@@ -8,15 +8,12 @@ export default class Home extends Component {
     render() {
         return ( 
             <div> {
-                localStorage.getItem('token') ? ( < Redirect to = {
-                        {
-                            pathname: '/parent'
-                        }
-                    }
-                    />) : (<Login / > )
+                localStorage.getItem('token') ? ( 
+                    < Redirect to = {
+                    { pathname: '/parent'}
+                    }/>) : (<Login />)
             } 
-           </div>
+            </div>
         )
     }
-
 }

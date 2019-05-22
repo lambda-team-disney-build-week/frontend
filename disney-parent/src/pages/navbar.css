@@ -1,0 +1,12 @@
+.nav-item{
+    display: flex;
+    flex-direction: row;
+     list-style-type: none;
+     margin: 0 auto;
+    padding: 0;
+    text-decoration: none;
+}
+
+.small{
+    width: 400px;
+}

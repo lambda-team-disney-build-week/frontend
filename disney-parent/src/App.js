@@ -4,7 +4,8 @@ import Login from './components/Login';
 import { Route, BrowserRouter } from 'react-router-dom';
 // import Auth from './components/Auth';
 import Home from './pages/Home';
-// import RequestForm from './pages/RequestForm';
+import Posts from './pages/Posts';
+// import axios from 'axios';
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
       <BrowserRouter >
         <Route path ='/' exact component={Home}></Route>
         <Route path ='/login' component ={Login}></Route>
+        <Route path ='/posts' component={Posts}></Route>
       </BrowserRouter >
     );
   }

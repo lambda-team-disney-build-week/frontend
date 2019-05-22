@@ -95,7 +95,7 @@ class LoginForm extends React.Component {
                 type="email"
                 name="email"
                 id="exampleUser"
-                placeholder="Uemail"
+                placeholder="email"
                 onChange={this.changeHandler}
               />
             </FormGroup>

@@ -9,6 +9,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Bangers|Titillium+Web" rel="stylesheet">
   <link rel="stylesheet" href="css/Meet-the-Team.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -47,49 +49,97 @@
 
         <section class = 'main-content'>
           <h2>Learn All About Your Disney Parent Team Here</h2>
-          
-          <div class = 'bio'>
-            <h3>Troy Bradley</h3>
-            <h5>Team Lead</h5>
-            <p>Troy is a Program Manager for Data Science. He was the Team Lead for the Disney Parent Team. He managed the workflow
-              and helped in the development phase as well. See his github and porfolio in the links below.</p>
+
+
+          <div class ='members'>
+            <div class='about'>
+              <span class='people'>Team Members</span>
+              <div data-tab='all' class ='member active-member'>All</div>
+              <div data-tab='Troy' class='member'>Troy</div>
+              <div data-tab='Kayla' class='member'>Kayla</div>
+              <div data-tab='Hugo' class='member'>Hugo</div>
+              <div data-tab='Alan' class='member'>Alan</div>
+              <div data-tab='Eric' class='member'>Eric</div>
+              <div data-tab='Joshua' class='member'>Joshua</div>
+            </div>
           </div>
           
-          <div class = 'bio'>
-            <h3>Kayla Dugas</h3>
-            <h5>UX Designer</h5>
-            <p>Kayla is a student in the User Experience Design Program. She was the User Experience Design Lead for the Disney
+          <div class ='bio-container'>
+
+          <div class = 'bio' data-tab='Troy'>
+            <div class='about'>Troy is a Program Manager for Data Science. He was the Team Lead for the Disney Parent Team. He managed the workflow
+              and helped in the development phase as well. See his github and porfolio in the links below.</div>
+              <div class='person'>
+                <div class ='img.container'>
+                  <img src='#' />
+                  </div>
+                  <span>Troy Bradley, Team Lead</span>
+                </div>
+              </div>
+          
+          
+        <div class='bio' data-tab='Kayla'>
+            <div class='about'>Kayla is a student in the User Experience Design Program. She was the User Experience Design Lead for the Disney
               Parent Team Build Week. All of the Front-End designs on this project were designed by Kayla.  See her designs 
-              and porfolio in the links below.</p>
-          </div>
+              and porfolio in the links below.</div>
+              <div class='person'>
+                  <div class ='img.container'>
+                    <img src='#' />
+                    </div>
+                    <span>Kayla Dugas, UX Designer</span>
+                  </div>
+                </div>
           
-          <div class = 'bio'>
-            <h3>Hugo Martinez</h3>
-            <h5>Front-End Developer</h5>
-            <p>Hugo is a student in the Full-Stack Web Development Program. He incorporated React into the project and developed
-              majority of the front-end. See his github and porfolio in the links below.</p>
-          </div>
           
-          <div class = 'bio'>
-            <h3>Alan Perez</h3>
-            <h5>Back-End Developer</h5>
-            <p>Alan is a student in the Full-Stack Web Development Program. He developed the back-end for the Disney Team Project
-              and also worked on a portion of the front-end. See his github and porfolio in the links below.</p>
-          </div>
+          <div class = 'bio' data-tab='Hugo'>
+            <div class='about'>Hugo is a student in the Full-Stack Web Development Program. He incorporated React into the project and developed
+              majority of the front-end. See his github and porfolio in the links below.</div>
+              <div class='person'>
+                  <div class ='img.container'>
+                    <img src='#' />
+                    </div>
+                    <span>Hugo Martinez, Front-End</span>
+                  </div>
+                </div>
           
-          <div class = 'bio'>
-            <h3>Eric Fugleberg</h3>
-            <h5>UI Developer</h5>
-            <p>Eric is a student in the Full-Stack Web Development Program.  He developed the Landing Meet the Team pages for
-              the Disney Parent Team Build Week. See his github and porfolio in the links below.</p>
-          </div>
           
-          <div class = 'bio'>
-            <h3>Joshua Vaughn</h3>
-            <h5>UI Developer</h5>
-            <p>Joshua is a student in the Full-Stack Web Development Program. He developed the Landing and Meet the Team pages for
-              the Disney Parent Team Build Week. See his github and porfolio in the links below.</p>
-          </div>
+          <div class = 'bio' data-tab='Alan'>
+            <div class='about'>Alan is a student in the Full-Stack Web Development Program. He developed the back-end for the Disney Team Project
+              and also worked on a portion of the front-end. See his github and porfolio in the links below.</div>
+              <div class='person'>
+                  <div class ='img.container'>
+                    <img src='#' />
+                    </div>
+                    <span>Alan Perez, Back-End</span>
+                  </div>
+                </div>
+          
+          
+          <div class = 'bio' data-tab='Eric'>
+            <div class='about'>Eric is a student in the Full-Stack Web Development Program.  He developed the Landing Meet the Team pages for
+              the Disney Parent Team Build Week. See his github and porfolio in the links below.</div>
+              <div class='person'>
+                  <div class ='img.container'>
+                    <img src='#' />
+                    </div>
+                    <span>Eric Fugleberg, UI Developer</span>
+                  </div>
+                </div>
+          
+          
+          <div class = 'bio' data-tab='Joshua'>
+            <div class='about'>Joshua is a student in the Full-Stack Web Development Program. He developed the Landing and Meet the Team pages for
+              the Disney Parent Team Build Week. See his github and porfolio in the links below.</div>
+              <div class='person'>
+                  <div class ='img.container'>
+                    <img src='#' />
+                    </div>
+                    <span>Joshua Vaughn, UI Developer</span>
+                  </div>
+                </div>
+          
+
+        </div>
           
         </section>
         

@@ -1,3 +1,9 @@
+.width-100 {
+  width: 100%;
+}
+.border-bottom-grey {
+  border-bottom: 1px solid grey;
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -180,6 +186,12 @@ p {
     margin: 0 5%;
   }
 }
+body {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: column;
+}
 .header {
   width: 100%;
   height: 75px;
@@ -319,4 +331,102 @@ p {
 }
 h2 {
   text-align: center;
+}
+.members {
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 47px;
+  background-color: #F9FAFA;
+}
+@media (min-width: 1280px) {
+  .members {
+    width: 1280px;
+  }
+}
+.members .about {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: row;
+}
+.members .about .people {
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.members .about .member {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: row;
+  color: #F9FAFA;
+  background-color: #7292B8;
+  margin: 0 5px;
+  padding: 2px 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.members .about .member:hover {
+  text-decoration: underline;
+}
+.members .about .active-member {
+  background-color: #F9FAFA;
+  color: #7292B8;
+  border: 2px solid red;
+}
+.bio-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: none;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+@media (min-width: 1200px) {
+  .bio-container {
+    width: 1200px;
+  }
+}
+.bio-container .bio {
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-direction: column;
+  background-color: white;
+  width: 380px;
+  margin-bottom: 16px;
+  padding: 24px;
+}
+.bio-container .bio .about {
+  font-size: 25px;
+  font-family: Didot, serif;
+}
+.bio-container .bio .person {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 15px;
+}
+.bio-container .bio .person .img-container {
+  padding-right: 10px;
+  border-right: 1px solid grey;
+  height: 40px;
+}
+.bio-container .bio .person .img-container img {
+  width: 40px;
+}
+.bio-container .bio .person span {
+  padding-left: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
 }

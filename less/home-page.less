@@ -41,7 +41,7 @@
     .mc-section-1 {
       display: flex;
       flex-direction: column;
-      width: 40%;
+      width: 42%;
       border: 1px solid red;
       text-align: right;
       padding-top: 70px;
@@ -49,6 +49,7 @@
       @media @mobile {
         width: 95%;
         margin-left: 1.5rem;
+        text-align: left;
       p {
         font-size: 2.4rem;
         width: 80%;
@@ -77,14 +78,27 @@
       text-align: right;
       @media @mobile {
         width: 95%;
+        margin: auto;
         }
       h2 {
         margin-bottom: 20px;
-        }       
-      img{
-          width: 75%;
-          margin-bottom: 20px;
         }
+        .park-assistance {
+          width: 90%;
+        
+      img{
+          width: 85%;
+          margin-bottom: 20px;
+          @media @mobile {
+            width: 100%;
+          }
+        }
+      }
+      p {
+        @media @mobile {
+          text-align: left;
+        }
+      }
       }
     .mc-section-3 {
       display: flex;
@@ -95,8 +109,14 @@
       text-align: left;
       @media @mobile {
         width: 95%;
+        margin-left: 1.5rem;
         margin-bottom: 70px;
         }
+      p {
+        @media @mobile {
+          text-align: right;
+        }
+      }
       img {
         width: 85%;
         margin-bottom: 20px;
@@ -108,20 +128,8 @@
     h2 {
       text-align: right;
     }
-    .poppins {
-      text-align: center;
-      color: @h2blue;
-      // margin: 0;
-    }
     .poppins-1 {
-      padding-bottom: 0px;
-      margin-bottom: 0px;
-      text-align: center;
-      color: @h2blue;
-    }
-    .poppins-2 {
-      padding-top: 0px;
-      margin-top: 0px;
+      margin-block-end: 10px;
       text-align: center;
       color: @h2blue;
     }
@@ -177,6 +185,8 @@
     h2 {
       text-align: right;
       margin-bottom: 20px;
+      width: 90%;
+      margin: auto;
     }
     .box {
       background-color: @tablecolor;
@@ -211,8 +221,13 @@
   }
 
   .mc-section-6 {
+    width: 95%;
+    margin: auto;
     h2 {
       text-align: right;
+    }
+    p {
+      font-size: 1.7rem;
     }
     .talk-bubble-1 {
       display: flex;
@@ -391,7 +406,7 @@
     height: 60px;
     width: 90%;
     text-justify: inter-word;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     border-radius: 50px;
     margin-bottom: 50px;
   

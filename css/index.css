@@ -169,7 +169,7 @@ p {
   width: 100%;
   margin: 0 auto;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .container {
     width: 90%;
     margin: 0 5%;
@@ -214,7 +214,7 @@ p {
   border: 1px solid #F9FAFA;
   border-radius: 0.5rem;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .header .nav-wrapper {
     display: none;
   }
@@ -222,12 +222,12 @@ p {
 .header .logo-1 {
   display: none;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .header .logo-1 {
     display: block;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .header .menu-button,
   .header .sign-in-button {
     display: flex;
@@ -251,7 +251,7 @@ p {
 .menu-button {
   display: none;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .menu-button {
     position: absolute;
     left: 40px;
@@ -262,7 +262,7 @@ p {
 .sign-in-button {
   display: none;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .sign-in-button {
     position: absolute;
     right: 40px;
@@ -273,7 +273,7 @@ p {
 .menu {
   display: none;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .menu {
     display: none;
     position: absolute;
@@ -289,7 +289,7 @@ p {
     /* This set the layer level of the element, it has precendence over initial level of 1*/
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .menu a {
     list-style-type: none;
     float: none;
@@ -300,7 +300,7 @@ p {
     text-align: left;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .menu--open {
     display: block;
     text-decoration: none;
@@ -328,7 +328,7 @@ p {
   margin-bottom: 70px;
   border: 1px solid red;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .top-section {
     display: block;
   }
@@ -340,7 +340,7 @@ p {
   border: 1px solid red;
   width: 55%;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .top-section .main-image {
     width: 100%;
     margin: auto;
@@ -350,15 +350,16 @@ p {
 .top-section .mc-section-1 {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 42%;
   border: 1px solid red;
   text-align: right;
   padding-top: 70px;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .top-section .mc-section-1 {
     width: 95%;
     margin-left: 1.5rem;
+    text-align: left;
   }
   .top-section .mc-section-1 p {
     font-size: 2.4rem;
@@ -374,7 +375,7 @@ p {
   margin-bottom: 70px;
   border: 1px solid red;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .middle-section {
     display: block;
   }
@@ -387,17 +388,31 @@ p {
   align-items: flex-end;
   text-align: right;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .middle-section .mc-section-2 {
     width: 95%;
+    margin: auto;
   }
 }
 .middle-section .mc-section-2 h2 {
   margin-bottom: 20px;
 }
-.middle-section .mc-section-2 img {
-  width: 75%;
+.middle-section .mc-section-2 .park-assistance {
+  width: 90%;
+}
+.middle-section .mc-section-2 .park-assistance img {
+  width: 85%;
   margin-bottom: 20px;
+}
+@media (max-width: 500px) {
+  .middle-section .mc-section-2 .park-assistance img {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .middle-section .mc-section-2 p {
+    text-align: left;
+  }
 }
 .middle-section .mc-section-3 {
   display: flex;
@@ -407,10 +422,16 @@ p {
   align-items: flex-start;
   text-align: left;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .middle-section .mc-section-3 {
     width: 95%;
+    margin-left: 1.5rem;
     margin-bottom: 70px;
+  }
+}
+@media (max-width: 500px) {
+  .middle-section .mc-section-3 p {
+    text-align: right;
   }
 }
 .middle-section .mc-section-3 img {
@@ -420,19 +441,8 @@ p {
 .mc-section-4 h2 {
   text-align: right;
 }
-.mc-section-4 .poppins {
-  text-align: center;
-  color: #306D96;
-}
 .mc-section-4 .poppins-1 {
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  text-align: center;
-  color: #306D96;
-}
-.mc-section-4 .poppins-2 {
-  padding-top: 0px;
-  margin-top: 0px;
+  margin-block-end: 10px;
   text-align: center;
   color: #306D96;
 }
@@ -442,7 +452,7 @@ p {
   border: 1px solid red;
   margin-bottom: 70px;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .mc-section-4 .flex-for-4 {
     display: block;
   }
@@ -453,7 +463,7 @@ p {
   height: auto;
   border: 1px solid red;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .mc-section-4 .flex-for-4 .image-div {
     width: 100%;
   }
@@ -465,7 +475,7 @@ p {
   width: 50%;
   border: 1px solid red;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   .mc-section-4 .flex-for-4 .flexed-content-4 {
     width: 95%;
     margin: auto;
@@ -486,6 +496,8 @@ p {
 .mc-section-5 h2 {
   text-align: right;
   margin-bottom: 20px;
+  width: 90%;
+  margin: auto;
 }
 .mc-section-5 .box {
   background-color: #F6D7B3;
@@ -515,8 +527,15 @@ p {
   width: 85%;
   margin: auto;
 }
+.mc-section-6 {
+  width: 95%;
+  margin: auto;
+}
 .mc-section-6 h2 {
   text-align: right;
+}
+.mc-section-6 p {
+  font-size: 1.7rem;
 }
 .mc-section-6 .talk-bubble-1 {
   display: flex;
@@ -680,11 +699,11 @@ button {
   height: 60px;
   width: 90%;
   text-justify: inter-word;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   border-radius: 50px;
   margin-bottom: 50px;
 }
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   button .button {
     height: 50px;
     font-size: 2.5rem;

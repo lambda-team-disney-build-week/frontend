@@ -208,6 +208,7 @@ p {
 }
 .header .nav-wrapper .logo {
   height: auto;
+  vertical-align: middle;
 }
 .header .nav-wrapper .big-header {
   list-style: none;
@@ -236,6 +237,7 @@ p {
 @media (max-width: 500px) {
   .header .logo-1 {
     display: block;
+    height: 80%;
   }
 }
 @media (max-width: 500px) {
@@ -386,6 +388,9 @@ p {
     width: 80%;
     margin-bottom: 40px;
   }
+}
+.solo-header {
+  margin-left: 2%;
 }
 .middle-section {
   display: flex;
@@ -731,7 +736,7 @@ p {
 .bottom-section .bottom-section-1,
 .bottom-section .bottom-section-2 {
   width: 50%;
-  padding-left: 50px;
+  padding: 0 12.5%;
 }
 .bottom-section ul {
   font-size: 1.5rem;
@@ -748,6 +753,7 @@ p {
 }
 button {
   display: block;
+  font-family: 'avenir';
   background-color: #7292B8;
   color: white;
   margin: auto;

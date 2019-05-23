@@ -214,6 +214,7 @@ body {
 }
 .header .nav-wrapper .logo {
   height: auto;
+  vertical-align: middle;
 }
 .header .nav-wrapper .big-header {
   list-style: none;
@@ -242,6 +243,7 @@ body {
 @media (max-width: 500px) {
   .header .logo-1 {
     display: block;
+    height: 80%;
   }
 }
 @media (max-width: 500px) {
@@ -341,7 +343,7 @@ h2 {
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 47px;
+  height: 55px;
   flex-wrap: wrap;
   background-color: #F9FAFA;
 }
@@ -422,11 +424,12 @@ h2 {
 }
 .bio-container .bio .person .img-container {
   padding-right: 10px;
-  border-right: 1px solid grey;
+  border-right: 1px solid #2D3239;
   height: 40px;
 }
 .bio-container .bio .person .img-container img {
-  width: 40px;
+  max-width: 40px;
+  max-height: 40px;
 }
 .bio-container .bio .person span {
   padding-left: 10px;
@@ -434,4 +437,46 @@ h2 {
   letter-spacing: 1px;
   font-weight: bold;
   color: #2D3239;
+}
+.bio-container .bio a {
+  text-decoration: none;
+  text-align: center;
+  padding-left: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2D3239;
+}
+.bottom-section {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  align-content: flex-start;
+  color: #306D96;
+  margin-bottom: 40px;
+  padding-top: 50px;
+}
+.bottom-section .bottom-section-1,
+.bottom-section .bottom-section-2 {
+  width: 50%;
+  padding: 0 12.5%;
+}
+.bottom-section ul {
+  font-size: 1.5rem;
+}
+.bottom-section ul a {
+  text-decoration: none;
+  color: #306D96;
+}
+.bottom-section ul li {
+  padding: 5px 0;
+}
+.bottom-section h5 {
+  font-weight: bold;
+}
+footer {
+  text-align: center;
+  color: #7292B8;
+  padding-bottom: 10px;
+  font-size: 2rem;
 }

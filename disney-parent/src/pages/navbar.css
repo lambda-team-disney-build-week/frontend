@@ -1,12 +1,15 @@
 .nav-item{
-    display: flex;
+    display: flex;    
+    justify-content: center; 
+    align-content: space-evenly;    
     flex-direction: row;
-     list-style-type: none;
-     margin: 0 auto;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0 auto;
     padding: 0;
     text-decoration: none;
 }
 
 .small{
-    width: 400px;
+    width: 500px;
 }

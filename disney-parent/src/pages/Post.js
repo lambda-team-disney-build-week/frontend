@@ -40,6 +40,12 @@ class Post extends React.Component {
       })
       console.log(this.props,"props")
     }
+
+   changeHandler = e => {
+     this.setState({
+       [e.target.name]: e.target.value
+     });
+   }
     
     getPost = (e, id) => {
       const token = localStorage.getItem('token')
@@ -62,11 +68,13 @@ class Post extends React.Component {
           .catch(err=> console.log(err));
     }
 
+    
+
     deletePost = (e, id) => {
       e.preventDefault();
       const token = localStorage.getItem('token')
         axios
-          .delete(`https://disneyparent-backend.herokuapp.com/posts${id}`, {headers: { Authorization: token}})
+          .delete(`https://disneyparent-backend.herokuapp.com/posts/:id`, {headers: { Authorization: token}})
           .then(res => {
             window.location.reload()
             console.log(res,"res");
@@ -79,19 +87,24 @@ class Post extends React.Component {
     return (
       <Container className="wrap">
         <div>
-          <Card className="shadow border">
+          <Card className="shadow">
             <CardTitle className="title"><h1><strong>{this.props.post.title}</strong></h1></CardTitle>
             <CardSubtitle className="attraction"><strong>Location: {this.props.post.attraction}</strong></CardSubtitle>
             <CardText className="children">Number of Children: {this.props.post.children}</CardText>
             <CardText className="time">Time: {this.props.post.time}</CardText>
             <CardText className="created">Requested at: {this.props.post.created_at}</CardText>
             <CardText className="updated_at">Updated at: {this.props.post.updated_at}</CardText>
+            <button onClick={this.deletePost}
+                    className="delete" 
+                    placeholder="Delete Post"
+                    value="id">Delete</button>
           </Card>
         </div>
       </Container>
     );
   }
 }
+
 
 export default Post;
 

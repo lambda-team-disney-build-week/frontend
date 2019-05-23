@@ -20,31 +20,29 @@ export default class Posts extends Component {
     getPosts = () => {
         const token = localStorage.getItem('token')
     axios
-      .get('https://disneyparent-backend.herokuapp.com/posts', {headers: {Authorization: token}})
-      .then(res=> 
-        {console.log(res.data)
-        this.setState({      
-            posts: res.data
-        })
-        console.log(this.state.posts)
-    })
-    .catch(err=> console.log(err))
+      .get('https://disneyparent-backend.herokuapp.com/posts', {headers:{Authorization: token}})
+      .then(res=>{ 
+          console.log(res.data)
+      this.setState({
+          posts: res.data
+      })
+      console.log(this.state.posts)
+      })
+      .catch(err=> console.log(err))
     }
-
+    
     getUsers = () => {
         const token = localStorage.getItem('token')
         axios
           .get('https://disneyparent-backend.herokuapp.com/parents', {headers: {Authorization: token}})
-          .then(res=> 
-           {console.log(res.data)
-           this.setState({      
-           users: res.data
-           })
-           console.log(this.state.users)
+          .then(res => {
+              this.setState({
+                  users: res.data
+              })
           })
-          .catch(err=> console.log(err))        
+          .catch(err => console.log(err))
     }
-     render(){
+    render(){
       return(
           <div>
               <Navi />
@@ -54,4 +52,5 @@ export default class Posts extends Component {
           </div>
       )
   }
+
 }    

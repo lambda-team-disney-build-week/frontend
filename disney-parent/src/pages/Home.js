@@ -10,7 +10,7 @@ export default class Home extends Component {
             <div> {
                 localStorage.getItem('token') ? ( 
                     < Redirect to = {
-                    { pathname: '/parent'}
+                    { pathname: '/posts'}
                     }/>) : (<Login />)
             } 
             </div>

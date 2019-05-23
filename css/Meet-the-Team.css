@@ -1,0 +1,322 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  font-family: 'avenir';
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'avenir';
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.3rem;
+  padding-bottom: 10px;
+  color: #306D96;
+}
+h3 {
+  font-size: 3rem;
+  padding-bottom: 10px;
+  color: #306D96;
+}
+h4 {
+  font-size: 2.4rem;
+  padding-bottom: 10px;
+}
+h5 {
+  font-size: 2.2rem;
+  padding-bottom: 10px;
+}
+p {
+  line-height: 1.25;
+  font-size: 2rem;
+  padding-bottom: 10px;
+  color: #2D3239;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+@media (max-width: 500px) {
+  .container {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+.header {
+  width: 100%;
+  height: 75px;
+  background-color: #7292B8;
+  color: #F9FAFA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+.header .nav-wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  padding: 0;
+  flex-direction: row;
+}
+.header .nav-wrapper .logo {
+  height: auto;
+}
+.header .nav-wrapper .big-header {
+  list-style: none;
+  display: flex;
+  vertical-align: middle;
+}
+.header .nav-wrapper .big-header a {
+  color: #F9FAFA;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 2.2rem;
+  vertical-align: middle;
+}
+.header .nav-wrapper .big-header .sign-up {
+  border: 1px solid #F9FAFA;
+  border-radius: 0.5rem;
+}
+@media (max-width: 500px) {
+  .header .nav-wrapper {
+    display: none;
+  }
+}
+.header .logo-1 {
+  display: none;
+}
+@media (max-width: 500px) {
+  .header .logo-1 {
+    display: block;
+  }
+}
+@media (max-width: 500px) {
+  .header .menu-button,
+  .header .sign-in-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #F9FAFA;
+  }
+  .header .bar1,
+  .header .bar2,
+  .header .bar3 {
+    width: 20px;
+    height: 5px;
+    background-color: #F9FAFA;
+    margin: 2px 0;
+  }
+  .header p {
+    margin-top: 5px;
+    color: #F9FAFA;
+  }
+}
+.menu-button {
+  display: none;
+}
+@media (max-width: 500px) {
+  .menu-button {
+    position: absolute;
+    left: 40px;
+    cursor: pointer;
+    margin-top: 2.5%;
+  }
+}
+.sign-in-button {
+  display: none;
+}
+@media (max-width: 500px) {
+  .sign-in-button {
+    position: absolute;
+    right: 40px;
+    cursor: pointer;
+    margin-top: 2.5%;
+  }
+}
+.menu {
+  display: none;
+}
+@media (max-width: 500px) {
+  .menu {
+    display: none;
+    position: absolute;
+    float: none;
+    top: 75px;
+    left: 40px;
+    width: auto;
+    height: auto;
+    /* This give the height 100% of the screen or, '100% of View Height' */
+    background-color: #7292B8;
+    border: 1px solid #F9FAFA;
+    z-index: 2;
+    /* This set the layer level of the element, it has precendence over initial level of 1*/
+  }
+}
+@media (max-width: 500px) {
+  .menu a {
+    list-style-type: none;
+    float: none;
+    color: #F9FAFA;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+}
+@media (max-width: 500px) {
+  .menu--open {
+    display: block;
+    text-decoration: none;
+  }
+}
+.container {
+  background-color: #f4ede5;
+  width: 100%;
+  margin: auto;
+  padding-top: 75px;
+}
+h2 {
+  text-align: center;
+}

@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import PostComponent from '../components/PostComponent';
 import {Jumbotron, Container} from 'reactstrap';
 import Navi from './Navi';
+import Header from './Header';
 
 export default class Profile extends Component {
     constructor(props){
@@ -16,6 +17,7 @@ render(){
       const hello= localStorage.getItem('username')
       return(
           <div>
+              <Header />
                 <Navi />
                 <Jumbotron fluid>
                     <Container fluid>

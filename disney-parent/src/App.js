@@ -5,6 +5,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import Request from './pages/Request';
 import Home from './pages/Home';
 import Posts from './pages/Posts';
+import Header from './pages/Header'
 
 import Parent from './components/Parent';
 

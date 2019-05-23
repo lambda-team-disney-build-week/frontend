@@ -7,11 +7,11 @@ import Post from '../pages/Post';
 
 class PostComponent extends React.Component {
   state = {
-      id: +localStorage.getItem("userId"),
+      parent_id: 1+localStorage.getItem('id'),
+      title:'',
       attraction:'',
       children: '',
       time: '',
-      parent_id: '',
       created_at: '',
       updated_at: ''
   }
@@ -32,7 +32,7 @@ class PostComponent extends React.Component {
   };
 
   changeHandler = e => {
-    console.log(this.state);
+    console.log(this.props);
     this.setState({
       [e.target.name]:
         e.target.name === "children"
@@ -93,7 +93,7 @@ class PostComponent extends React.Component {
             </Input>            
             <Label for='time'>Meeting Time</Label>
             <Input
-              type='textarea'
+              type='text'
               name='time'
               id='exampleText'
               placeholder='What time should we meet?'

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Post from './Post';
 import Navi from './Navi';
+import Header from './Header';
 
 export default class Posts extends Component {
     constructor(props){
@@ -46,6 +47,7 @@ export default class Posts extends Component {
       return(
           <div>
               <Navi />
+              <Header />
               {this.state.posts.map((post)=>
                 <Post post={post} key={post.id} getPosts={this.getPosts}/>
               )}

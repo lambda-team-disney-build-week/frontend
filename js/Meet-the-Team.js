@@ -7,47 +7,42 @@ class MemberLink {
      
     this.tabData = this.tabElement.dataset.tab;
     // console.log(this.tabElement.dataset.tab);
-    // We need to find out if a user clicked 'all' cards or a specific category.  Follow the instructions below to accomplish this task:    
-    
     
     // Check to see if this.tabData is equal to 'all'
     if(this.tabData === 'all'){
-      // If `all` is true, select all cards regardless of their data attribute values
+      // If `all` is true, select all bios regardless of their data attribute values
       this.bios = document.querySelectorAll('.bio');
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       this.bios = document.querySelectorAll(`.bio[data-tab="${this.tabData}"]`);
     }
-    
-    
 
-     // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards element into a new instance of the TabCard class. Pass in a card object to the TabCard class. 
+     // Map over the newly converted NodeList we just created in our if statement above.  
     this.bios = Array.from(this.bios).map(element => new BioCard(element));
 
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener('click', () => this.selectTab());
-    // console.log(this.cards);
   }
 
 
   selectTab(){
 
-    // Select all elements with the .tab class on them
+    // Select all elements with the .member class on them
     const members = document.querySelectorAll('.member');
     
-    // Iterate through the NodeList removing the .active-tab class from each element
+    // Iterate through the NodeList removing the .active-member class from each element
     members.forEach(element => element.classList.remove('active-member'))
 
-    // Select all of the elements with the .card class on them
+    // Select all of the elements with the .bio class on them
     const bios = document.querySelectorAll('.bio');
 
     // Iterate through the NodeList setting the display style each one to 'none'
     bios.forEach(element => element.style.display = 'none')
     
-    // Add a class of ".active-tab" to this.tabElement
+    // Add a class of ".active-member" to this.tabElement
     this.tabElement.classList.toggle('active-member');
   
-    // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class. Just un-comment the code and study what is happening here.
+    
     this.bios.forEach(bio => bio.selectCard());
   }
 }
@@ -64,19 +59,8 @@ class BioCard {
 
 }
 
-/* START HERE: 
-
-- Select all classes named ".tab" and assign that value to the tabs variable
-
-- With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList
-
-- In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
-
-*/
 let members = document.querySelectorAll('.member')
 members.forEach(memberLink => new MemberLink(memberLink));
-
-
 
 
 const toggleMenu = () => {

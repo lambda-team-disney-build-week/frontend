@@ -2,7 +2,7 @@
   width: 100%;
 }
 .border-bottom-grey {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #2D3239;
 }
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -330,16 +330,19 @@ body {
   padding-top: 75px;
 }
 h2 {
+  padding: 20px 0;
   text-align: center;
+  vertical-align: middle;
 }
 .members {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #2D3239;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 100%;
   height: 47px;
+  flex-wrap: wrap;
   background-color: #F9FAFA;
 }
 @media (min-width: 1280px) {
@@ -352,6 +355,7 @@ h2 {
   justify-content: none;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .members .about .people {
   font-size: 12px;
@@ -378,7 +382,7 @@ h2 {
 .members .about .active-member {
   background-color: #F9FAFA;
   color: #7292B8;
-  border: 2px solid red;
+  border: 2px solid #7292B8;
 }
 .bio-container {
   display: flex;
@@ -395,19 +399,19 @@ h2 {
   }
 }
 .bio-container .bio {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #2D3239;
   display: flex;
   justify-content: space-between;
   align-items: none;
   flex-direction: column;
-  background-color: white;
+  background-color: #F9FAFA;
   width: 380px;
   margin-bottom: 16px;
   padding: 24px;
 }
 .bio-container .bio .about {
-  font-size: 25px;
-  font-family: Didot, serif;
+  font-size: 20px;
+  color: #2D3239;
 }
 .bio-container .bio .person {
   display: flex;
@@ -429,4 +433,5 @@ h2 {
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: bold;
+  color: #2D3239;
 }

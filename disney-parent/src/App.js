@@ -37,7 +37,6 @@ class App extends Component {
         <Route exact path ='/' exact component={Home}></Route>
         <Route path ='/login' component ={Login}></Route>
         <Route path ='/posts' component={Posts}></Route>
-        <Route path ='/parent' component={Parent}></Route>
         <Route path ='/request' component={Request}></Route>
       </BrowserRouter >
     );

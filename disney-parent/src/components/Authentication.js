@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {getToken} from '../helpers/getToken'
 import axios from 'axios';
 import {withRouter} from 'react-router-dom'
-import Login from '../pages/Login';
+import Login from './Login';
 import Signup from '../pages/Signup';
 
 class Auth extends Component {
@@ -18,7 +18,7 @@ class Auth extends Component {
         const token = getToken();
         console.log(token)
         if(!token){
-            this.props.history.push(`/parents/${userInfo.id}`)
+            this.props.history.push(`/parents/login`)
         }
         axios
         .post('https://disneyparent-backend.herokuapp.com/auth/parents/login', { headers: { Authorization: token}})

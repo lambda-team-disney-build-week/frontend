@@ -4,15 +4,12 @@ import { Card,
          CardBody,
          CardTitle, 
          CardSubtitle, 
-         CardText,
          Button, 
          Container, 
          Input, 
          Form } from 'reactstrap';
 import './post.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-
 
 class Post extends React.Component {
   constructor(props) {
@@ -32,7 +29,7 @@ componentDidMount(){
       this.props.getPosts()
       this.setState({
        username: localStorage.getItem('username'),
-       post_id: this.props.post_id
+       post_id: this.props.post.id
       })
       console.log(this.props, 'props')
     }
@@ -55,24 +52,40 @@ componentDidMount(){
      });
    }
 
-   getComment = (e, id) => {
-  const token = localStorage.getItem('token')
-  axios
-      .get(`https://disneyparent-backend.herokuapp.com/comments/${id}`,  {headers: {Authorization: token}})
-      .then(res=> {
+  //  addComment = (comment, id, username) => {
+  // const token = localStorage.getItem('token')
+  // axios
+  //     .post(`https://disneyparent-backend.herokuapp.com/comments`,  {comment: this.state.comment, username: this.state.username , post_id: this.state.post_id}, {headers: {Authorization: token}})
+  //     .then(res=> {
+  //         this.props.getPosts()
+  //         this.setState({
+  //           comment: ""
+  //         })
+  //     })
+  //     .catch(err=> console.log(err));
+  //   }
+   
+  getComment = (e, id) => {
+
+      const token = localStorage.getItem('token')
+        axios
+          .get(`https://disneyparent-backend.herokuapp.com/comments`,  {headers: {Authorization: token}})
+          .then(res=> {
           console.log(res)
-          this.setState({
-            comment: res.data
+            this.props.getPosts()
+            this.toggle()
+            this.setState({
+             comment: res.data
           })
-      })
-      .catch(err=> console.log(err));
+        })
+          .catch(err=> console.log(err));
     }
 
 
 
   updateComment = (comment, id) => {
     const token = localStorage.getItem('token')
-    console.log({comment: this.state.comment}, {post_id: this.state.id}, 10)
+    console.log({comment: this.state.comment}, {post_id: this.state.post_id}, 10)
     axios
       .put(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {comment: this.state.comment, username: this.state.username}, {headers: {Authorization: token}})
       .then(res => {
@@ -126,7 +139,7 @@ componentDidMount(){
     e.preventDefault()
     return(
       <div>
-        {this.state.isEditing ?  this.updateComment(this.state.comment, this.state.id) : this.deleteComment(this.state.comment)}
+        {this.state.isEditing ?  this.getComment(this.state) : this.updateComment(this.state.comment, this.state.id)}
       </div>
     )
   }
@@ -135,9 +148,9 @@ componentDidMount(){
   
   render() {
 
-  const thisId = 1+localStorage.getItem('parent_id');
+  const thisId = localStorage.getItem('parentId');
   const username = localStorage.getItem('username');
- console.log(this.props)
+ console.log(this.props.post.comment, 40)
    
    
     return (
@@ -149,14 +162,14 @@ componentDidMount(){
 
                 <CardImg top width="100%" src="" alt="" />
                 <CardBody className='teal'>
-                  <CardTitle className="strong"><strong>Date Requested:<span>&nbsp;</span></strong> {this.props.post.created_at} </CardTitle>          
+                  <CardTitle className="strong"><strong>User Name:<span>&nbsp;</span></strong> {this.props.post.username} </CardTitle>          
                   <CardSubtitle className='pad'><strong>Date: <span>&nbsp;</span></strong> {this.props.post.time}</CardSubtitle>
                   <CardSubtitle className='pad'><strong>Location:<span>&nbsp;</span></strong> We are located in {this.props.post.attraction} with  {this.props.post.children} children
                   </CardSubtitle>
                   
               <Form onSubmit={this.submitHandler}>
                   <CardSubtitle>
-                       {this.props.post.comments && this.props.post.comments.map(comment => {
+                       {this.props.post.comment && this.props.post.comment.map(comment => {
                          
                           return(
                             <div key={comment.id}>
@@ -165,9 +178,9 @@ componentDidMount(){
                                 {this.state.isEditing ?
                                   (<div>
                                 <div className='centered'>
-                                {comment.parent_id === username ? <Button className='smaller blue left' onClick={(e) => this.deleteComment(e, comment.parent_id)}>Delete</Button> : null}
+                                {comment.username === username ? <Button className='smaller blue left' onClick={(e) => this.deleteComment(e, comment.id)}>Delete</Button> : null}
                                 
-                                  {comment.parent_id === username ? <Button className='smaller red' onClick={this.toggle(comment.parent_id, comment.comment)}>Edit </Button> : null}
+                                  {comment.username === username ? <Button className='smaller red' onClick={this.toggle(comment.id, comment.comment)}>Edit </Button> : null}
                                     </div>
                                   </div>)
                                   :
@@ -193,8 +206,8 @@ componentDidMount(){
                  
                 </CardBody>
                 <div className='displayFlex'>
-                   {this.props.post.parent_id === this.parent_Id ? <Button className='leftButton red' onClick={(e) => this.deletePost(e, this.props.post.parent_id)}>Delete Post</Button> : null}
-                   {this.props.post.parent_id === this.parent_Id ? <Button className='rightButton light-blue' onClick={(e) => this.updatePost(e, this.props.post.parent_id)}>Update Post</Button> : null}
+                   {this.props.post.parent_id === thisId ? <Button className='leftButton red' onClick={(e) => this.deletePost(e, this.props.post.id)}>Delete Post</Button> : null}
+                   {this.props.post.parent_id === thisId ? <Button className='rightButton light-blue' onClick={(e) => this.updatePost(e, this.props.post.id)}>Update Post</Button> : null}
                   </div>
                 </Card>
               </div>

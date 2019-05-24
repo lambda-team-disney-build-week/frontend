@@ -14,14 +14,14 @@ export default class Profile extends Component {
     }
     }
 render(){
-      const hello= localStorage.getItem('username')
+      const name= localStorage.getItem('username')
       return(
           <div>
               <Header />
                 <Navi />
                 <Jumbotron fluid>
                     <Container fluid>
-                    <h1 className="display-3">Hello!</h1>
+                    <h1 className="display-3">Hello! {name}</h1>
                     <p className="lead">Please post a request below.</p>
                     </Container>
                 </Jumbotron>

@@ -43,6 +43,27 @@ export default class Posts extends Component {
           })
           .catch(err => console.log(err))
     }
+     
+     updatePost = (post) => {
+        axios
+        .put('https://disneyparent-backend.herokuapp.com/posts', post)
+        .then(res=> {
+            this.setState({
+                posts: res.data
+            })
+            this.props.history.push('./posts')
+        })
+        .catch(err=> console.log(err))
+    }
+
+    logout = () => {
+        localStorage.clear();
+        window.location.reload()
+    }
+
+
+
+
     render(){
       return(
           <div>

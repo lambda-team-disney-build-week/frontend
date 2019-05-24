@@ -11,38 +11,43 @@ import { Card,
          Form } from 'reactstrap';
 import './post.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      attraction: '',
-      children: '',
-      time: '',
-      parent_id: '',
+      id: '',
+      username:'',
+      comment: '',
+      post_id: '',
       created_at: '',
       updated_at: '',
-      comment: ''
+      isEditing: true
     };
   }
 
-  componentDidMount(){
+componentDidMount(){
       this.props.getPosts()
       this.setState({
-        title: localStorage.getItem('title'),
-        attraction: this.props.attraction,
-        children: this.props.children,
-        time: this.props.time,
-        parent_id: this.props.parent_id,
-        created_at: this.props.created_at,
-        updated_at: this.props.updated_at
-
+       username: localStorage.getItem('username'),
+       post_id: this.props.post.id
       })
-      console.log(this.props,)
+      console.log(this.props, 'props')
     }
 
+
+  toggle = (id, comment) => e => {
+    this.setState({
+    isEditing: !this.state.isEditing,
+    id,
+    comment
+    })
+  }
+
+  
+ 
 
     changeHandler = e => {
      this.setState({
@@ -50,21 +55,15 @@ class Post extends React.Component {
      });
    }
 
-    toggle = (parent_id, comment) => e => {
-    this.setState({
-    isEditing: !this.state.isEditing,
-    parent_id,
-    comment
-    })
-  }
+   
 
   
 
-  addComment = (comment, parent_id, username) => {
+  addComment = ( comment, id, username) => {
 
     const token = localStorage.getItem('token')
     axios
-       .post(`https://disneyparent-backend.herokuapp.com/comments/${parent_id}`, {comment: this.state.comment, parent_id: this.state.parent_id, username: this.state.username}, {headers:{authorization: token}})
+       .post(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {comment: this.state.comment, username: this.state.username, post_id: this.state.post_id}, {headers:{authorization: token}})
       .then(res => {
             this.props.getPosts()
             this.toggle()
@@ -78,10 +77,17 @@ class Post extends React.Component {
 
   updateComment = (comment, id) => {
     const token = localStorage.getItem('token')
-    console.log({comment:this.state.comment}, {id: this.state.post})
+    console.log({comment: this.state.comment}, {post_id: this.state.id}, 10)
     axios
-    .put(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {comment: this.state.comment, id: this.state.parent_id}, {headers: {Authorization: token}})
-
+      .put(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {comment: this.state.comment, username: this.state.username}, {headers: {Authorization: token}})
+      .then(res => {
+        this.props.getPosts()
+        this.toggle()
+        this.seState({
+          comment: ''
+        })
+      })
+      .catch(err => console.log(err));
   }
 
 
@@ -95,34 +101,9 @@ class Post extends React.Component {
          })
         .catch(err=> console.log(err));
   }
-   
-
-   addPost = (e, id) => {
-     const token = localStorage.getItem('token')
-     axios
-        .post(`https://disneyparent-backend.herokuapp.com/posts/${id}`, {headers: {Authorization: token}})
-        .then(res => {
-          console.log(this.props)
-          this.setState({
-           title: this.props.title,
-           attraction: this.props.attraction,
-           children: this.props.children,
-           time: this.props.time,
-           parent_id: this.props.parent_id,
-           created_at: this.props.created_at,
-           updated_at: this.props.created_at  
-          })
-
-        })
-   }
 
 
-
-
-
-   
-    
-    getPost = (e, id) => {
+  getPost = (e, id) => {
       const token = localStorage.getItem('token')
         axios
           .get(`https://disneyparent-backend.herokuapp.com/posts/${id}`,  {headers: {Authorization: token}})
@@ -132,8 +113,6 @@ class Post extends React.Component {
           })
           .catch(err=> console.log(err));
     }
-
-    
 
     deletePost = (e, id) => {
       e.preventDefault();
@@ -147,7 +126,8 @@ class Post extends React.Component {
           .catch(err => console.log(err));
     }
 
-    submitHandler = (e) => {
+
+   submitHandler = (e) => {
     e.preventDefault()
     return(
       <div>
@@ -155,10 +135,12 @@ class Post extends React.Component {
       </div>
     )
   }
+
+      
   
   render() {
 
-  const thisId = +localStorage.getItem('id');
+  const thisId = +localStorage.getItem('parent_id');
   const username = localStorage.getItem('username');
  console.log(this.props)
    
@@ -195,7 +177,7 @@ class Post extends React.Component {
                                   </div>)
                                   :
                                   null
-                        }
+                                }
                             </div>
                             
                           )

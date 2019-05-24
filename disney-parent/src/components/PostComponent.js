@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
-// import "./postcomponent.css";
+import "./postcomponent.css";
 import axios from "axios";
 import {withRouter} from 'react-router-dom'
-import Post from '../pages/Post';
+
 
 class PostComponent extends React.Component {
   state = {

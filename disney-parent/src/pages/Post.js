@@ -28,7 +28,7 @@ class Post extends React.Component {
 componentDidMount(){
       this.props.getPosts()
       this.setState({
-       username: localStorage.getItem('username'),
+       username: this.props.username,
        post_id: this.props.post.id
       })
       console.log(this.props, 'props')
@@ -52,18 +52,18 @@ componentDidMount(){
      });
    }
 
-  //  addComment = (comment, id, username) => {
-  // const token = localStorage.getItem('token')
-  // axios
-  //     .post(`https://disneyparent-backend.herokuapp.com/comments`,  {comment: this.state.comment, username: this.state.username , post_id: this.state.post_id}, {headers: {Authorization: token}})
-  //     .then(res=> {
-  //         this.props.getPosts()
-  //         this.setState({
-  //           comment: ""
-  //         })
-  //     })
-  //     .catch(err=> console.log(err));
-  //   }
+   addComment = (comment, id, username) => {
+  const token = localStorage.getItem('token')
+  axios
+      .post(`https://disneyparent-backend.herokuapp.com/comments`,  {comment: this.state.comment, username: this.state.username , post_id: this.state.post_id}, {headers: {Authorization: token}})
+      .then(res=> {
+          this.props.getPosts()
+          this.setState({
+            comment: ""
+          })
+      })
+      .catch(err=> console.log(err));
+    }
    
   getComment = (e, id) => {
 
@@ -139,7 +139,7 @@ componentDidMount(){
     e.preventDefault()
     return(
       <div>
-        {this.state.isEditing ?  this.getComment(this.state) : this.updateComment(this.state.comment, this.state.id)}
+        {this.state.isEditing ?  this.addComment(this.state) : this.updateComment(this.state.comment, this.state.id)}
       </div>
     )
   }

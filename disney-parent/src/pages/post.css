@@ -87,3 +87,6 @@ input{
 .rightButton{
     width:50%;
 }
+.card-subtitle{
+    height: 50px;
+}

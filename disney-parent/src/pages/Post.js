@@ -32,7 +32,7 @@ componentDidMount(){
       this.props.getPosts()
       this.setState({
        username: localStorage.getItem('username'),
-       post_id: this.props.post.id
+       post_id: this.props.post_id
       })
       console.log(this.props, 'props')
     }
@@ -135,7 +135,7 @@ componentDidMount(){
   
   render() {
 
-  const thisId = +localStorage.getItem('parent_id');
+  const thisId = 1+localStorage.getItem('parent_id');
   const username = localStorage.getItem('username');
  console.log(this.props)
    
@@ -156,7 +156,7 @@ componentDidMount(){
                   
               <Form onSubmit={this.submitHandler}>
                   <CardSubtitle>
-                       {this.props.post.comment && this.props.post.comments.map(comment => {
+                       {this.props.post.comments && this.props.post.comments.map(comment => {
                          
                           return(
                             <div key={comment.id}>
@@ -165,9 +165,9 @@ componentDidMount(){
                                 {this.state.isEditing ?
                                   (<div>
                                 <div className='centered'>
-                                {comment.post_id === username ? <Button className='smaller blue left' onClick={(e) => this.deleteComment(e, comment.post_id)}>Delete</Button> : null}
+                                {comment.parent_id === username ? <Button className='smaller blue left' onClick={(e) => this.deleteComment(e, comment.parent_id)}>Delete</Button> : null}
                                 
-                                  {comment.post_id === username ? <Button className='smaller red' onClick={this.toggle(comment.post_id, comment.comment)}>Edit </Button> : null}
+                                  {comment.parent_id === username ? <Button className='smaller red' onClick={this.toggle(comment.parent_id, comment.comment)}>Edit </Button> : null}
                                     </div>
                                   </div>)
                                   :
@@ -178,14 +178,14 @@ componentDidMount(){
                           )
                           
                       }
-                       )}
+                      )}
     
-                  </CardSubtitle> 
+                 </CardSubtitle> 
                   {this.state.isEditing ? 
                       <Input name='comment' value={this.state.comment} onChange={this.changeHandler} placeholder= 'Add a comment...'></Input>
                       :
                       <div className='centered'>
-                      <Button className='blue smaller centered' onClick={this.toggle(this.state.username, this.state.comment)}>Cancel</Button>
+                      <Button className='blue smaller centered' onClick={this.toggle(this.state.comment)}>Cancel</Button>
                       <Input name='comment' value={this.state.comment} onChange={this.changeHandler} placeholder= 'Edit your comment...'></Input>
                       </div>
                   }   
@@ -193,8 +193,8 @@ componentDidMount(){
                  
                 </CardBody>
                 <div className='displayFlex'>
-                   {this.props.post.id === thisId ? <Button className='leftButton red' onClick={(e) => this.deletePost(e, this.props.post.post_id)}>Delete Post</Button> : null}
-                   {this.props.post.id === thisId ? <Button className='rightButton light-blue' onClick={(e) => this.updatePost(e, this.props.post.post_id)}>Update Post</Button> : null}
+                   {this.props.post.parent_id === this.parent_Id ? <Button className='leftButton red' onClick={(e) => this.deletePost(e, this.props.post.parent_id)}>Delete Post</Button> : null}
+                   {this.props.post.parent_id === this.parent_Id ? <Button className='rightButton light-blue' onClick={(e) => this.updatePost(e, this.props.post.parent_id)}>Update Post</Button> : null}
                   </div>
                 </Card>
               </div>

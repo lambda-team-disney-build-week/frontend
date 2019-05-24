@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Button, Form, Col, FormGroup, Label, Input, Container} from 'reactstrap';
+
  
-import '../';
+import './signup.css';
  
 class Signup extends Component{
     state= {

@@ -15,7 +15,7 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 1+localStorage.getItem('id'),
+      id: '',
       username:'',
       comment: '',
       post_id: '',
@@ -33,6 +33,8 @@ componentDidMount(){
       })
       console.log(this.props, 'props')
     }
+
+
 
 
   toggle = (id, comment) => e => {
@@ -55,11 +57,12 @@ componentDidMount(){
    addComment = (comment, id, username) => {
   const token = localStorage.getItem('token')
   axios
-      .post(`https://disneyparent-backend.herokuapp.com/comments`,  {comment: this.state.comment, username: this.state.username , post_id: this.state.post_id}, {headers: {Authorization: token}})
+      .post(`https://disneyparent-backend.herokuapp.com/comment`,  {comment: this.state.comment, username: this.state.username , post_id: this.state.post_id}, {headers: {Authorization: token}})
       .then(res=> {
+          console.log(res, 30)
           this.props.getPosts()
           this.setState({
-            comment: ""
+            comment: this.post
           })
       })
       .catch(err=> console.log(err));
@@ -69,9 +72,9 @@ componentDidMount(){
 
       const token = localStorage.getItem('token')
         axios
-          .get(`https://disneyparent-backend.herokuapp.com/comments`,  {headers: {Authorization: token}})
+          .get(`https://disneyparent-backend.herokuapp.com/comments/${id}`,  {headers: {Authorization: token}})
           .then(res=> {
-          console.log(res)
+          console.log(res, 20)
             this.props.getPosts()
             this.toggle()
             this.setState({
@@ -89,14 +92,14 @@ componentDidMount(){
     axios
       .put(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {comment: this.state.comment, username: this.state.username}, {headers: {Authorization: token}})
       .then(res => {
-        this.props.getPosts()
-        this.toggle()
+        console.log(res, 26)
         this.setState({
-          comment: ''
+                posts: res.data
+            })
+            this.props.history.push('./posts')
         })
-      })
-      .catch(err => console.log(err));
-  }
+        .catch(err=> console.log(err))
+    }
 
 
   deleteComment = (e, id) => {
@@ -116,7 +119,7 @@ componentDidMount(){
         axios
           .get(`https://disneyparent-backend.herokuapp.com/posts/${id}`,  {headers: {Authorization: token}})
           .then(res=> {
-          console.log(res)
+          console.log(res , 10)
 
           })
           .catch(err=> console.log(err));
@@ -139,7 +142,7 @@ componentDidMount(){
     e.preventDefault()
     return(
       <div>
-        {this.state.isEditing ?  this.addComment(this.state) : this.updateComment(this.state.comment, this.state.id)}
+        {this.state.isEditing ?  this.updateComment(this.state) : this.deleteComment(this.state.comment, this.state.id)}
       </div>
     )
   }
@@ -149,8 +152,8 @@ componentDidMount(){
   render() {
 
   const thisId = localStorage.getItem('parentId');
-  const username = localStorage.getItem('username');
- console.log(this.props.post.comment, 40)
+  const username = localStorage.getItem('updatedAt');
+ console.log(this.props.post, 40)
    
    
     return (
@@ -162,8 +165,8 @@ componentDidMount(){
 
                 <CardImg top width="100%" src="" alt="" />
                 <CardBody className='teal'>
-                  <CardTitle className="strong"><strong>User Name:<span>&nbsp;</span></strong> {this.props.post.username} </CardTitle>          
-                  <CardSubtitle className='pad'><strong>Date: <span>&nbsp;</span></strong> {this.props.post.time}</CardSubtitle>
+                  <CardTitle className="strong"><strong>Date Created:<span>&nbsp;</span></strong> {this.props.post.created_at} </CardTitle>          
+                  <CardSubtitle className='pad'><strong>Updated at: <span>&nbsp;</span></strong> {this.props.post.updated_at}</CardSubtitle>
                   <CardSubtitle className='pad'><strong>Location:<span>&nbsp;</span></strong> We are located in {this.props.post.attraction} with  {this.props.post.children} children
                   </CardSubtitle>
                   

@@ -1,9 +1,13 @@
-.nav-item{
+.nav-item{ 
+    margin: 0 auto;   
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 5px;
+    text-decoration: none;
+    list-style: none;
 }
 
 .small{
-    width: 400px;
+    margin: 0 auto;
+    width: 800px;
 }

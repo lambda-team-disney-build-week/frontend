@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './jumbo.css';
+import './jumbotron.css';
 import {Button, Jumbotron} from 'reactstrap';
 
 class Jumbo extends Component {

@@ -11,6 +11,7 @@ import {
 import "./login.css";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Navi from '../pages/Navi'
  
 class LoginForm extends React.Component {
   constructor(props) {
@@ -61,7 +62,8 @@ class LoginForm extends React.Component {
  
   render() {
     return (
-      <Container className="App">
+    
+      <Container className="App"><Navi />   
         <h2 className="display-4 h2">Sign In</h2>
         <Form className="form" onSubmit={e => this.submitHandler(e)}>
           <Col>

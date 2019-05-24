@@ -9,55 +9,102 @@ import { Card,
          Container, 
          Input, 
          Form } from 'reactstrap';
-// import './styles.scss';
+import './post.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      attraction: '',
-      children: '',
-      time: '',
-      parent_id: '',
+      id: 1+localStorage.getItem('id'),
+      username:'',
+      comment: '',
+      post_id: '',
       created_at: '',
-      updated_at: ''
+      updated_at: '',
+      isEditing: true
     };
   }
 
-  componentDidMount(){
+componentDidMount(){
       this.props.getPosts()
       this.setState({
-        title: localStorage.getItem('title'),
-        attraction: this.props.attraction,
-        children: this.props.children,
-        time: this.props.time,
-        parent_id: this.props.parent_id,
-        created_at: this.props.created_at,
-        updated_at: this.props.created_at
+       username: localStorage.getItem('username'),
+       post_id: this.props.post.id
       })
-      console.log(this.props,"props")
+      console.log(this.props, 'props')
     }
-    
-    getPost = (e, id) => {
+
+
+  toggle = (id, comment) => e => {
+    this.setState({
+    isEditing: !this.state.isEditing,
+    id,
+    comment
+    })
+  }
+
+  
+ 
+
+    changeHandler = e => {
+     this.setState({
+       [e.target.name]: e.target.value
+     });
+   }
+
+   getComment = (e, id) => {
+  const token = localStorage.getItem('token')
+  axios
+      .get(`https://disneyparent-backend.herokuapp.com/comments/${id}`,  {headers: {Authorization: token}})
+      .then(res=> {
+          console.log(res)
+          this.setState({
+            comment: res.data
+          })
+      })
+      .catch(err=> console.log(err));
+    }
+
+
+
+  updateComment = (comment, id) => {
+    const token = localStorage.getItem('token')
+    console.log({comment: this.state.comment}, {post_id: this.state.id}, 10)
+    axios
+      .put(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {comment: this.state.comment, username: this.state.username}, {headers: {Authorization: token}})
+      .then(res => {
+        this.props.getPosts()
+        this.toggle()
+        this.setState({
+          comment: ''
+        })
+      })
+      .catch(err => console.log(err));
+  }
+
+
+  deleteComment = (e, id) => {
+    e.preventDefault();
+    const token = localStorage.getItem('token')
+    axios
+        .delete(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {headers: {Authorization: token}})
+        .then(res=> {
+            this.props.getPosts()        
+         })
+        .catch(err=> console.log(err));
+  }
+
+
+  getPost = (e, id) => {
       const token = localStorage.getItem('token')
         axios
-          .get(`https://disney-parent.herokuapp.com/api/posts`,  {headers: {Authorization: token}})
+          .get(`https://disneyparent-backend.herokuapp.com/posts/${id}`,  {headers: {Authorization: token}})
           .then(res=> {
           console.log(res)
-          .then(res => {
-            this.setState({
-              title: res.data.title,
-              attraction: res.data.attraction,
-              children: res.data.children,
-              time: res.data.time,
-              parent_id: res.data.parent_id,
-              created_at: res.data.created_at,
-              updated_at: res.data.updated_at
-            })
-          })
+
           })
           .catch(err=> console.log(err));
     }
@@ -66,7 +113,7 @@ class Post extends React.Component {
       e.preventDefault();
       const token = localStorage.getItem('token')
         axios
-          .delete(`https://disneyparent-backend.herokuapp.com/posts${id}`, {headers: { Authorization: token}})
+          .delete(`https://disneyparent-backend.herokuapp.com/posts/${id}`, {headers: { Authorization: token}})
           .then(res => {
             window.location.reload()
             console.log(res,"res");
@@ -74,24 +121,88 @@ class Post extends React.Component {
           .catch(err => console.log(err));
     }
 
-  render() {
-    console.log(this.props)
-    return (
-      <Container className="wrap">
-        <div>
-          <Card className="shadow border">
-            <CardTitle className="title"><h1><strong>{this.props.post.title}</strong></h1></CardTitle>
-            <CardSubtitle className="attraction"><strong>Location: {this.props.post.attraction}</strong></CardSubtitle>
-            <CardText className="children">Number of Children: {this.props.post.children}</CardText>
-            <CardText className="time">Time: {this.props.post.time}</CardText>
-            <CardText className="created">Requested at: {this.props.post.created_at}</CardText>
-            <CardText className="updated_at">Updated at: {this.props.post.updated_at}</CardText>
-          </Card>
-        </div>
-      </Container>
-    );
+
+   submitHandler = (e) => {
+    e.preventDefault()
+    return(
+      <div>
+        {this.state.isEditing ?  this.updateComment(this.state.comment, this.state.id) : this.deleteComment(this.state.comment)}
+      </div>
+    )
   }
+
+      
+  
+  render() {
+
+  const thisId = +localStorage.getItem('parent_id');
+  const username = localStorage.getItem('username');
+ console.log(this.props)
+   
+   
+    return (
+       <Container className="wrap">
+            <div>
+
+              <Card className="shadow border">
+             <CardTitle onClick={(e) => this.getPost(e, this.props.post.id)} className='center large'>{this.props.post.title}</CardTitle>
+
+                <CardImg top width="100%" src="" alt="" />
+                <CardBody className='teal'>
+                  <CardTitle className="strong"><strong>Date Requested:<span>&nbsp;</span></strong> {this.props.post.created_at} </CardTitle>          
+                  <CardSubtitle className='pad'><strong>Date: <span>&nbsp;</span></strong> {this.props.post.time}</CardSubtitle>
+                  <CardSubtitle className='pad'><strong>Location:<span>&nbsp;</span></strong> We are located in {this.props.post.attraction} with  {this.props.post.children} children
+                  </CardSubtitle>
+                  
+              <Form onSubmit={this.submitHandler}>
+                  <CardSubtitle>
+                       {this.props.post.comment && this.props.post.comments.map(comment => {
+                         
+                          return(
+                            <div key={comment.id}>
+                            
+                                <CardSubtitle className='pad'><strong>Comment: <span>&nbsp;</span></strong>{comment.comment} </CardSubtitle>
+                                {this.state.isEditing ?
+                                  (<div>
+                                <div className='centered'>
+                                {comment.post_id === username ? <Button className='smaller blue left' onClick={(e) => this.deleteComment(e, comment.post_id)}>Delete</Button> : null}
+                                
+                                  {comment.post_id === username ? <Button className='smaller red' onClick={this.toggle(comment.post_id, comment.comment)}>Edit </Button> : null}
+                                    </div>
+                                  </div>)
+                                  :
+                                  null
+                                }
+                            </div>
+                            
+                          )
+                          
+                      }
+                       )}
+    
+                  </CardSubtitle> 
+                  {this.state.isEditing ? 
+                      <Input name='comment' value={this.state.comment} onChange={this.changeHandler} placeholder= 'Add a comment...'></Input>
+                      :
+                      <div className='centered'>
+                      <Button className='blue smaller centered' onClick={this.toggle(this.state.username, this.state.comment)}>Cancel</Button>
+                      <Input name='comment' value={this.state.comment} onChange={this.changeHandler} placeholder= 'Edit your comment...'></Input>
+                      </div>
+                  }   
+            </Form>
+                 
+                </CardBody>
+                <div className='displayFlex'>
+                   {this.props.post.id === thisId ? <Button className='leftButton red' onClick={(e) => this.deletePost(e, this.props.post.post_id)}>Delete Post</Button> : null}
+                   {this.props.post.id === thisId ? <Button className='rightButton light-blue' onClick={(e) => this.updatePost(e, this.props.post.post_id)}>Update Post</Button> : null}
+                  </div>
+                </Card>
+              </div>
+            </Container>
+        )
+      }
 }
+
 
 export default Post;
 

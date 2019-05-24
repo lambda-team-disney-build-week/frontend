@@ -1,56 +1,91 @@
-import React from 'react';
-import { connect }from 'react-redux';
+import React  from 'react';
+import { Card, 
+         CardImg, 
+         CardBody,
+         CardTitle, 
+         CardSubtitle, 
+         CardText,
+         Button, 
+         Container, 
+         Input, 
+         Form } from 'reactstrap';
+// import './styles.scss';
+import axios from 'axios';
 
-class Parent extends React.Component{
+
+class Parent extends React.Component {
   constructor(props) {
-      super(props);
-        this.state = {
-        username: '',
-        password: '',
-        email: '',
-        id: '',
-        accountType: ''
-      };
-   }
- // adding parents
-  addParent = e => {
-    const parent = {
-      username: this.state.name,
-      password: this.state.password,
-      email: this.state.email,
-      id: this.state.id,
-      accountType: this.state.accountType
-    }
-    this.props.addParent(parent)
+    super(props);
+    this.state = {
+     id:'',
+     username: '',
+     email: "",
+     accountType:'',
+    };
   }
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value});
-  }
-  //delete parent
-  deleteParent = e => {
-      this.setState({id: e.target.value})
-      this.props.deleteParent(this.state.id);
-      this.setState({ id : ''})
-  }  
-  idSet = e => {
-      this.setState({ id: e.target.value })
-  }
-
-  componentDidMount() {
+  componentDidMount(){
       this.props.getParents()
+      this.setState({        
+        id: localStorage.getItem('id'),
+        username:  this.props.username,
+        time: this.props.time,
+        email: this.props.email,
+        accountType: this.props.accountType,
+      })
+      console.log(this.props,"props")
+    }
+    
+    getParent = (e, id) => {
+      const token = localStorage.getItem('token')
+        axios
+          .get('https://disneyparent-backend.herokuapp.com/parents',  {headers: {Authorization: token}})
+          .then(res => {
+            console.log(res)
+            .then( res => {
+            this.setState({
+              id: res.data.id,
+              username: res.data.username,
+              children: res.data.children,
+              time: res.data.time,
+              email: res.data.email,
+              accountType: res.data.accountType,
+            })
+          })
+          })
+          .catch(err=> console.log(err));
+    
+    }
+
+    deleteParent = (e, id) => {
+      e.preventDefault();
+      const token = localStorage.getItem('token')
+        axios
+          .delete(`https://disneyparent-backend.herokuapp.com/parents`, {headers: { Authorization: token}})
+          .then(res => {
+            window.location.reload()
+            console.log(res,"res");
+          })
+          .catch(err => console.log(err));
+    }
+
+  render() {
+    console.log(this.props)
+    return (
+      <Container className="wrap">
+        <div>
+          <Card className="shadow border">
+            <CardTitle className="id"><h1><strong>{this.props.parents.id}</strong></h1></CardTitle>
+            <CardSubtitle className="username"><strong>Location: {this.props.parents.username}</strong></CardSubtitle>
+            <CardText className="time">Number of time: {this.props.parents.time}</CardText>
+            <CardText className="email">email: {this.props.parents.email}</CardText>
+            <CardText className="accountType">Requested at: {this.parents.accountType}</CardText>
+          </Card>
+        </div>
+      </Container>
+    );
   }
 }
- const mapStateToProps = state => {
-     return {
-         parents: state.parents,
-         fetchingParents: state.fetchingParents
-     }
- }
 
- export default connect(mapStateToProps, {
-     addParent,
-     deleteParent,
-     getParents
- })(Parent);
+export default Parent;
 

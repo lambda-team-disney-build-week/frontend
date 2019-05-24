@@ -8,6 +8,7 @@ import {
   Nav,
   NavItem,
   NavLink, } from 'reactstrap';
+  import Login from '../components/Login';
 
   import './navbar.css'
 
@@ -28,9 +29,8 @@ export default class Navi extends React.Component {
   render() {
     return (
       <div>
-        <Navbar className='small' color="light" light expand="md">
-          <NavbarBrand className="nav-item"href="#">Disney Parent</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
+        <Navbar className='small'>
+          <NavbarBrand className="nav-item"href="/parents">Disney Parent</NavbarBrand>
               <Nav className="ml-auto" navbar>
               <NavItem  >
                 <NavLink className="nav-item"href="/Posts">Home</NavLink>
@@ -39,11 +39,14 @@ export default class Navi extends React.Component {
                 <NavLink className="nav-item"href="/Login">Log In</NavLink>
               </NavItem >
               <NavItem >
-                <NavLink className="nav-item"href="/Signup">Signup</NavLink>
+                <NavLink className="nav-item"href="/Login">Signup</NavLink>
               </NavItem >
               <NavItem >
                 <NavLink className="nav-item"href="/">Log Out</NavLink>
-              </NavItem >              
+              </NavItem >
+              <NavItem >
+                <NavLink className="nav-item"href="/request">Request</NavLink>
+              </NavItem >                            
             </Nav>
         </Navbar>
       </div>

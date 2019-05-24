@@ -40,8 +40,6 @@ class BioCard {
     this.bioElement.style.display = 'flex';
   }
 }
-
-
   
 let members = document.querySelectorAll('.member')
 members.forEach(memberLink => new MemberLink(memberLink));

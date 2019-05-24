@@ -726,17 +726,12 @@ p {
 }
 .bottom-section {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   text-align: left;
   align-content: flex-start;
   color: #306D96;
   margin-bottom: 40px;
   padding-top: 50px;
-}
-.bottom-section .bottom-section-1,
-.bottom-section .bottom-section-2 {
-  width: 50%;
-  padding: 0 12.5%;
 }
 .bottom-section ul {
   font-size: 1.5rem;
@@ -761,7 +756,7 @@ button {
   height: 60px;
   width: 90%;
   text-justify: inter-word;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   border-radius: 50px;
   margin-bottom: 50px;
 }

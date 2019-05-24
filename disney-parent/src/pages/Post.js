@@ -18,7 +18,7 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
+      id: 1+localStorage.getItem('id'),
       username:'',
       comment: '',
       post_id: '',
@@ -55,25 +55,20 @@ componentDidMount(){
      });
    }
 
-   
+   getComment = (e, id) => {
+  const token = localStorage.getItem('token')
+  axios
+      .get(`https://disneyparent-backend.herokuapp.com/comments/${id}`,  {headers: {Authorization: token}})
+      .then(res=> {
+          console.log(res)
+          this.setState({
+            comment: res.data
+          })
+      })
+      .catch(err=> console.log(err));
+    }
 
-  
 
-  addComment = ( comment, id, username) => {
-
-    const token = localStorage.getItem('token')
-    axios
-       .post(`https://disneyparent-backend.herokuapp.com/comments/${id}`, {comment: this.state.comment, username: this.state.username, post_id: this.state.post_id}, {headers:{authorization: token}})
-      .then(res => {
-            this.props.getPosts()
-            this.toggle()
-            this.setState({
-              comment:''
-            })
-        })
-        .catch(err=> console.log(err))
-
-  }
 
   updateComment = (comment, id) => {
     const token = localStorage.getItem('token')
@@ -83,7 +78,7 @@ componentDidMount(){
       .then(res => {
         this.props.getPosts()
         this.toggle()
-        this.seState({
+        this.setState({
           comment: ''
         })
       })
@@ -131,7 +126,7 @@ componentDidMount(){
     e.preventDefault()
     return(
       <div>
-        {this.state.isEditing ? this.addComment(this.state) : this.updateComment(this.state.comment, this.state.id)}
+        {this.state.isEditing ?  this.updateComment(this.state.comment, this.state.id) : this.deleteComment(this.state.comment)}
       </div>
     )
   }
@@ -161,7 +156,7 @@ componentDidMount(){
                   
               <Form onSubmit={this.submitHandler}>
                   <CardSubtitle>
-                       {this.props.post.comment && this.props.post.comment.map(comment=> {
+                       {this.props.post.comment && this.props.post.comments.map(comment => {
                          
                           return(
                             <div key={comment.id}>
@@ -170,9 +165,9 @@ componentDidMount(){
                                 {this.state.isEditing ?
                                   (<div>
                                 <div className='centered'>
-                                {comment.id === username ? <Button className='smaller blue left' onClick={(e) => this.deleteComment(e, comment.id)}>Delete</Button> : null}
+                                {comment.post_id === username ? <Button className='smaller blue left' onClick={(e) => this.deleteComment(e, comment.post_id)}>Delete</Button> : null}
                                 
-                                  {comment.id === username ? <Button className='smaller red' onClick={this.toggle(comment.id, comment.comment)}>Edit </Button> : null}
+                                  {comment.post_id === username ? <Button className='smaller red' onClick={this.toggle(comment.post_id, comment.comment)}>Edit </Button> : null}
                                     </div>
                                   </div>)
                                   :
@@ -190,7 +185,7 @@ componentDidMount(){
                       <Input name='comment' value={this.state.comment} onChange={this.changeHandler} placeholder= 'Add a comment...'></Input>
                       :
                       <div className='centered'>
-                      <Button className='blue smaller centered' onClick={this.toggle(this.state.parent_id, this.state.comment)}>Cancel</Button>
+                      <Button className='blue smaller centered' onClick={this.toggle(this.state.username, this.state.comment)}>Cancel</Button>
                       <Input name='comment' value={this.state.comment} onChange={this.changeHandler} placeholder= 'Edit your comment...'></Input>
                       </div>
                   }   
@@ -198,8 +193,8 @@ componentDidMount(){
                  
                 </CardBody>
                 <div className='displayFlex'>
-                   {this.props.post.id === thisId ? <Button className='leftButton red' onClick={(e) => this.deletePost(e, this.props.post.id)}>Delete Post</Button> : null}
-                   {this.props.post.id === thisId ? <Button className='rightButton light-blue' onClick={(e) => this.updatePost(e, this.props.post.id)}>Update Post</Button> : null}
+                   {this.props.post.id === thisId ? <Button className='leftButton red' onClick={(e) => this.deletePost(e, this.props.post.post_id)}>Delete Post</Button> : null}
+                   {this.props.post.id === thisId ? <Button className='rightButton light-blue' onClick={(e) => this.updatePost(e, this.props.post.post_id)}>Update Post</Button> : null}
                   </div>
                 </Card>
               </div>

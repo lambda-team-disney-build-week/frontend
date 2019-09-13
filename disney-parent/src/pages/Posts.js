@@ -18,16 +18,17 @@ export default class Posts extends Component {
         this.getUsers();
     }
 
+
     getPosts = () => {
         const token = localStorage.getItem('token')
     axios
       .get('https://disneyparent-backend.herokuapp.com/posts', {headers:{Authorization: token}})
       .then(res=>{ 
-          console.log(res.data)
+          console.log(res.data, 20)
       this.setState({
           posts: res.data
       })
-      console.log(this.state.posts)
+      console.log(this.state.posts, 25)
       })
       .catch(err=> console.log(err))
     }
@@ -46,7 +47,7 @@ export default class Posts extends Component {
      
      updatePost = (post) => {
         axios
-        .put('https://disneyparent-backend.herokuapp.com/posts', post)
+        .put(`https://disneyparent-backend.herokuapp.com/posts/`, post)
         .then(res=> {
             this.setState({
                 posts: res.data

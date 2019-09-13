@@ -28,7 +28,8 @@
 }
 
 .shadow{
-    box-shadow: 5px 10px;
+     padding: 10px;
+     box-shadow: 5px 10px 8px #686363;
 }
 
 .padding{
@@ -72,7 +73,7 @@ input{
 }
 
 .light-blue{
-    background-color: rgb(41, 41, 255);
+    background-color:70A7BF;
 }
 
 .displayFlex{
@@ -86,4 +87,7 @@ input{
 
 .rightButton{
     width:50%;
+}
+.card-subtitle{
+    height: 50px;
 }

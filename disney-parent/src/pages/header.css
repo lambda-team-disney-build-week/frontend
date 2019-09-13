@@ -1,16 +1,16 @@
-.red{
-    background-color:#ff1212;
-    border-color:#ff1212
+.col{
+    background-color:#12ffff;
+    border-color:#181515
 }
 
-.red:hover{
+.col:hover{
     background-color:#627c7b21
 }
 
-.light-blue{
-    background-color: rgb(66, 116, 255);
+.bg{
+    background-color: rgb(102, 200, 241);
 }
 
 p, h1{
-    color:rgba(255, 255, 255, 0.886);
+    color:rgba(7, 55, 73, 0.886);
 }

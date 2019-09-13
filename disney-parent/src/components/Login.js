@@ -21,9 +21,7 @@ class Login extends Component {
     return (
       <div>
         <Jumbo toggle={this.toggle} loginForm={this.state.loginForm} />
-        {this.state.loginForm
-          ? <LoginForm history={this.props.history} />
-          : <Signup toggle={this.toggle} />}
+        {this.state.loginForm ? <LoginForm history={this.props.history} /> : <Signup toggle={this.toggle} />}
       </div>
     )
   }

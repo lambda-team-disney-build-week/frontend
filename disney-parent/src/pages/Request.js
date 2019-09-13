@@ -21,7 +21,7 @@ render(){
                 <Navi />
                 <Jumbotron fluid>
                     <Container fluid>
-                    <h1 className="display-3">Hello! {name}</h1>
+                    <h1 className="display-3">Hello! </h1>
                     <p className="lead">Please post a request below.</p>
                     </Container>
                 </Jumbotron>

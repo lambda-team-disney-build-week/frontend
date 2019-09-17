@@ -1,0 +1,141 @@
+.header {
+
+    width: 100%;
+    height: 75px;
+    background-color: @periwinkle;
+    color: @Diswhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+  
+    
+    .nav-wrapper {
+      margin: auto;
+      display: flex;
+      justify-content: space-between; 
+      width: 95%;
+      padding: 0;
+      // border: 1px solid red;
+      flex-direction: row;
+
+    .logo {
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .big-header{
+      list-style: none;
+      display: flex;
+      vertical-align: middle;
+      // border: 1px solid red;
+
+      a {
+        color: @Diswhite;
+        padding: 20px;
+        text-decoration: none;
+        // align-items: s;
+        font-size: 2.2rem;
+        vertical-align: middle;
+      }
+      .sign-up {
+        border: 1px solid @Diswhite;
+        border-radius: 0.5rem;
+      }
+    }
+      @media @mobile {
+        display: none;
+      }
+    }
+
+    .logo-1 {
+      display: none;
+      @media @mobile {
+        display: block;
+        height: 80%;
+      }
+    }
+
+    @media @mobile {
+    .menu-button, .sign-in-button {
+      display: flex;
+      flex-direction: column;
+      // border: 1px solid black;
+      align-items: center;
+      color: @Diswhite;
+    }
+    .bar1, .bar2, .bar3 {
+        width: 20px;
+        height: 5px;
+        background-color: @Diswhite;
+        margin: 2px 0;
+    }
+    p {
+        margin-top: 5px;
+        color: @Diswhite;
+    }
+  }
+}
+  
+  // Menu & Sign-In Less
+  .menu-button {
+    display: none;
+    
+    @media @mobile {
+    position: absolute;
+    //Left positioning - positions this on the left margin
+    left: 40px;
+    cursor: pointer;
+    margin-top: 2.5%;
+  }
+}
+  .sign-in-button {
+    display: none;
+
+    @media @mobile {
+    position: absolute;
+    //Right positioning - positions this on the right margin
+    right: 40px;
+    cursor: pointer;
+    margin-top: 2.5%;
+  }
+}
+  
+  //JavaScript Component
+  .menu {
+    display: none;
+    @media @mobile {
+    display: none;
+    position: absolute;
+    float: none;
+    top: 75px;
+    left: 40px;
+    width: auto;
+    height: auto; /* This give the height 100% of the screen or, '100% of View Height' */
+    background-color: @periwinkle;
+    border: 1px solid @Diswhite;
+    z-index: 2; /* This set the layer level of the element, it has precendence over initial level of 1*/
+  }
+}
+  
+  .menu a {
+    @media @mobile {
+    list-style-type: none;
+    float: none;
+    color: @Diswhite;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  }
+  
+  .menu--open {
+    @media @mobile {
+    display: block;
+    text-decoration: none;
+  }
+  }
+  
